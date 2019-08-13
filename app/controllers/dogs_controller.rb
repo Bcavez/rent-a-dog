@@ -1,4 +1,5 @@
 class DogsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:preview, :index]
   before_action :set_user, only: [:new, :create]
   before_action :set_dog, only: [:show, :edit, :update, :destroy, :preview]
 
