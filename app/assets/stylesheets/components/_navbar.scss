@@ -1,6 +1,10 @@
+$indigo: #1F0173;
+$yellow: #f8b739;
+
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  border-color: $yellow;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -10,3 +14,26 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.dropdown-menu {
+  border: 1px solid $yellow;
+}
+
+li a.nav-link:hover , .dropdown-item:hover {
+  color: $yellow !important ;
+  background-color: white !important;
+}
+
+li a.nav-link:active {
+  color: $yellow !important ;
+}
+
+.dropdown-item:active {
+  color: $yellow !important ;
+  background-color: $indigo;
+}
+
+.dropdown-item , li a.nav-link {
+  color: $indigo !important ;
+}
+
