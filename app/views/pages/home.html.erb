@@ -5,4 +5,15 @@
     <a class="btd-indw" href="#">GET STARTED</a>
   </div>
 </div>
-
+<br>
+<div class="container">
+  <h3> Tip Top Doggies : </h3>
+  <div class="cards">
+      <% @top_ten.each do |dog| %>
+        <div class="card-dog">
+          <img src= "<%= dog.image %>" alt="dog">
+            <%= link_to dog.name.upcase, preview_path(dog), class: "links-sessions" %>
+        </div>
+      <% end %>
+  </div>
+</div>
