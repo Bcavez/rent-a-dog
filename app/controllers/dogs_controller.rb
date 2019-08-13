@@ -1,6 +1,6 @@
 class DogsController < ApplicationController
   before_action :set_user, only: [:new]
-  before_action :set_dog, only: [:show, :edit, :update]
+  before_action :set_dog, only: [:show, :edit, :update, :destroy]
 
   def show
     # give the bookings of the dog as an array to the views
@@ -48,6 +48,13 @@ class DogsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @user = @dog.user
+    @dog.destroy
+
+    redirect_to user_path(@user)
   end
 
   private
