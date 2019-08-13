@@ -1,0 +1,50 @@
+$gris: #DCDCDC;
+$gbl: #2A2F36;
+$lgb: #2F343B;
+$indigo: #1F0173;
+$yellow: #f8b739;
+
+.btd-ind {
+  color: $yellow ;
+  padding: 5px 15px;
+  border-radius: 5px;
+  background:$indigo ;
+  box-shadow: 2px 2px 10px $gris;
+}
+
+.btd-ind:hover {
+  opacity: 1;
+  text-decoration: none;
+  background: $yellow;
+  color: white;
+}
+
+.btd-yel {
+  color: $indigo ;
+  padding: 5px 15px;
+  border-radius: 5px;
+  background:$yellow ;
+  box-shadow: 2px 2px 10px $gris;
+}
+
+.btd-yel:hover {
+  opacity: 1;
+  text-decoration: none;
+  background: $indigo;
+  color: $yellow;
+}
+
+.btd-yw {
+  color: $yellow ;
+  padding: 5px 15px;
+  border-radius: 5px;
+  background:$white ;
+  box-shadow: 2px 2px 10px $gris;
+}
+
+.btd-yw:hover {
+  opacity: 1;
+  text-decoration: none;
+  background: $yellow;
+  color: white;
+}

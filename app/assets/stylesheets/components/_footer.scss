@@ -2,7 +2,7 @@ $indigo: #1F0173;
 $yellow: #f8b739;
 
 .footer {
-  background: #F4F4F4;
+  background: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -26,6 +26,7 @@ $yellow: #f8b739;
 
 .footer-links a:hover {
   color: $yellow;
+  opacity: 1;
 }
 
 .footer .fa-paw {
@@ -33,6 +34,12 @@ $yellow: #f8b739;
   opacity: 0.15;
 }
 
-.footer .fa-paw {
+.footer .fa-paw:hover {
   color: $indigo;
+  opacity: 1;
+}
+
+.footer-copyright:hover {
+  color: $indigo;
+  opacity: 1;
 }

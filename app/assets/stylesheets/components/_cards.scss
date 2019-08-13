@@ -1,0 +1,17 @@
+$gris: #DCDCDC;
+$gbl: #2A2F36;
+$lgb: #2F343B;
+$indigo: #1F0173;
+$yellow: #f8b739;
+
+.card-login {
+  background-size: cover;
+  background-position: center;
+  width: 60%;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  color: $gbl;
+  margin: 10px auto;
+  padding: 20px;
+  overflow:scroll;
+}
