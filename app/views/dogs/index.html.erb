@@ -1,8 +1,11 @@
 <h1>Dogs#index</h1>
 
-<% @dogs.each do |dog| %>
-  <div>
-    <%= dog[:name] %>
-    <%= image_tag(dog[:image]) %>
-  </div>
-<% end %>
+<div class="cards">
+  <% @dogs.each do |dog| %>
+    <div class="card-dog">
+      <%= dog[:name] %>
+      <%= image_tag(dog[:image]) %>
+    </div>
+  <% end %>
+</div>
+
