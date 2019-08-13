@@ -1,6 +1,10 @@
 $indigo: #1F0173;
 $yellow: #f8b739;
 
+.navbar {
+  height: 70px;
+}
+
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
@@ -11,8 +15,8 @@ $yellow: #f8b739;
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.logo {
+  width: 70px;
 }
 
 .dropdown-menu {
