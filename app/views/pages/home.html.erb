@@ -5,4 +5,11 @@
     <a class="btd-indw" href="#">GET STARTED</a>
   </div>
 </div>
-
+<br>
+<% @top_ten.each do |dog| %>
+  <div class="card-dog">
+    <img src= "<%= dog.picture %>" alt="dog">
+      <%= link_to dog.name, preview_dogs "#", class: "nav-link" %>
+    <h3> <%= dog.name %> </h3>
+  </div>
+<% end %>
