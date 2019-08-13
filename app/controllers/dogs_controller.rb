@@ -1,11 +1,11 @@
 class DogsController < ApplicationController
   before_action :set_user, only: [:new, :create]
-  before_action :set_dog, only: [:show, :edit, :update, :destroy]
+  before_action :set_dog, only: [:show, :edit, :update, :destroy, :preview]
 
   def show
     # give the bookings of the dog as an array to the views
     @bookings = @dog.bookings
-    # give the owner of the dog to the views
+    # give the use instance of the owner of the dog to the views
     @owner = @dog.user
 
     # FOR LATER, give the reviews as an array to the views
@@ -55,6 +55,16 @@ class DogsController < ApplicationController
     @dog.destroy
 
     redirect_to user_path(@user)
+  end
+
+  def preview
+    # give the bookings of the dog as an array to the views
+    @bookings = @dog.bookings
+    # give the user instance of the owner of the dog to the views
+    @owner = @dog.user
+
+    # FOR LATER, give the reviews as an array to the views
+    # @reviews = @dog.reviews
   end
 
   private
