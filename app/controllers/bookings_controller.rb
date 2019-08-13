@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   # sets the variable @booking for show and delete
-  before_action :set_booking, only: [:show, :delete]
+  before_action :set_booking, only: [:show, :destroy]
   # sets the variable @dog for new and create
   before_action :set_dog, only: [:new, :create]
   # sets the variable @user for new and create
