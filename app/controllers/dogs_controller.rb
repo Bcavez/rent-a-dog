@@ -12,5 +12,14 @@ class DogsController < ApplicationController
   end
 
   def index
+    @dogs = Dog.all
+  end
+
+  def new
+    @dog = Dog.new
+    @user = User.find(params[:id])
+  end
+
+  def create
   end
 end
