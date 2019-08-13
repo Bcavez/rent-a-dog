@@ -4,11 +4,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   # a guest can create a user, a user can see his profile and edit his profile
-  resources :users, only: [:show, :new, :create, :edit] do
-    resources :dogs, only: [:new, :create]
-  end
+  resources :users, only: [:show, :new, :create, :edit]
   # all 7 crud action can be done for dogs.
-  resources :dogs, except: [:new, :create] do
+  resources :dogss do
     # a guest can preview a specific dog page before login-in
     member do
       get 'preview'
