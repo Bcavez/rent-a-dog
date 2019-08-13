@@ -1,1 +1,28 @@
-<%= @user.email %>
+<div class="container">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+      <table class="table table-bordered">
+        <tbody>
+          <td colspan = "3"><h1>User Profile</h1></td>
+          <tr>
+            <td rowspan="3" width="300px"><%= cl_image_tag @user.photo, height: 200, width: 250, crop: :fill %></td>
+            <td><%= @user.name %> <%= @user.lastname %></td>
+          <tr>
+            <td><%= @user.email %></td>
+          </tr>
+          <tr>
+            <td><%= @user.address %></td>
+          </tr>
+        </tbody>
+      </table>
+      <h1 class="text-center">Previous buddies</h1>
+
+    </div>
+
+
+
+
+
+
+
+
+</div>
