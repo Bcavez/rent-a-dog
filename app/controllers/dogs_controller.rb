@@ -1,5 +1,5 @@
 class DogsController < ApplicationController
-  before_action :set_owner, only: [:show]
+  before_action :set_user, only: [:new]
   before_action :set_dog, only: [:show, :edit]
 
   def show
@@ -18,7 +18,7 @@ class DogsController < ApplicationController
   end
 
   def new
-    #pass a new dog empty dog instance to the view
+    # pass a new dog empty dog instance to the view
     @dog = Dog.new
   end
 
@@ -48,9 +48,9 @@ class DogsController < ApplicationController
     @dog = Dog.find(params[:id])
   end
 
-  def set_owner
+  def set_user
     # give the owner instance to the view
-    @owner = User.find(params[:id])
+    @user = current_user
   end
 
   def dog_params
