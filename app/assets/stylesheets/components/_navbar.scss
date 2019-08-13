@@ -1,6 +1,16 @@
+$indigo: #1F0173;
+
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+}
+
+.dropdown-item {
+  color: $indigo;
+}
+
+li a.nav-link {
+  color: $indigo !important ;
 }
 
 .navbar-lewagon .navbar-collapse {
