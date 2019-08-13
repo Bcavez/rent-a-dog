@@ -1,6 +1,6 @@
 class DogsController < ApplicationController
   before_action :set_user, only: [:new]
-  before_action :set_dog, only: [:show, :edit]
+  before_action :set_dog, only: [:show, :edit, :update]
 
   def show
     # give the bookings of the dog as an array to the views
@@ -39,6 +39,15 @@ class DogsController < ApplicationController
   end
 
   def edit
+  end
+
+  def update
+    # goes to show page of the dog if update is successfull.
+    if @dog.update(dog_params)
+      redirect_to dog_path(@dog)
+    else
+      render :edit
+    end
   end
 
   private
