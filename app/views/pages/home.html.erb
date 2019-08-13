@@ -6,10 +6,14 @@
   </div>
 </div>
 <br>
-<% @top_ten.each do |dog| %>
-  <div class="card-dog">
-    <img src= "<%= dog.picture %>" alt="dog">
-      <%= link_to dog.name, preview_dogs "#", class: "nav-link" %>
-    <h3> <%= dog.name %> </h3>
+<div class="container">
+  <h3> Tip Top Doggies : </h3>
+  <div class="cards">
+      <% @top_ten.each do |dog| %>
+        <div class="card-dog">
+          <img src= "<%= dog.image %>" alt="dog">
+            <%= link_to dog.name.upcase, dog_path(dog), class: "links-sessions" %>
+        </div>
+      <% end %>
   </div>
-<% end %>
+</div>
