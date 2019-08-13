@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
-  # sets the variable @booking for show
-  before_action :set_booking, only: [:show]
-  # sets the variable @dog for new
+  # sets the variable @booking for show and delete
+  before_action :set_booking, only: [:show, :delete]
+  # sets the variable @dog for new and create
   before_action :set_dog, only: [:new, :create]
   # sets the variable @user for new and create
   before_action :set_user, only: [:new, :create]
@@ -26,6 +26,15 @@ class BookingsController < ApplicationController
     # otherwise render new form
     else render :new
     end
+  end
+
+  def destroy
+    # sets the dog so that we can redirect later
+    @dog = @booking.dog
+    @booking.destroy
+
+    # redirect to the show page of the dog associated to the deleted booking
+    redirect_to dog_path(@dog)
   end
 
   private
