@@ -7,6 +7,7 @@ $yellow: #f8b739;
 .card-login {
   background-size: cover;
   background-position: center;
+  background-color: white;
   width: 60%;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
@@ -14,4 +15,7 @@ $yellow: #f8b739;
   margin: 10px auto;
   padding: 20px;
   overflow:scroll;
+  h2, .form-inputs {
+    color: $indigo
+  }
 }

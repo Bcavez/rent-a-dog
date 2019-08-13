@@ -4,7 +4,7 @@ $lgb: #2F343B;
 $indigo: #1F0173;
 $yellow: #f8b739;
 
-.btd-ind {
+.btd-ind, .btd-indw{
   color: $yellow ;
   padding: 5px 15px;
   border-radius: 5px;
@@ -17,6 +17,13 @@ $yellow: #f8b739;
   text-decoration: none;
   background: $yellow;
   color: white;
+}
+
+.btd-indw:hover {
+  opacity: 1;
+  text-decoration: none;
+  background: white;
+  color: $indigo;
 }
 
 .btd-yel {
