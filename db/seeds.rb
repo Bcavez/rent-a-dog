@@ -10,7 +10,7 @@
   # create a fake user
   faker_user = User.new(name: Faker::Superhero.prefix, lastname: Faker::Superhero.name, address: Faker::Movies::LordOfTheRings.location, email: Faker::Internet.email, password: Faker::Internet.password(min_length: 8), payment: false, photo: "https://picsum.photos/200")
   # create a fake dog
-  faker_dog = Dog.new(name: Faker::Movies::Hobbit.character, race: Faker::Creature::Dog.breed, size: ('small', 'medium', 'large').sample, description: Faker::Creature::Dog.meme_phrase, picture: "https://picsum.photos/id/1025/4951/3301")
+  faker_dog = Dog.new(name: Faker::Movies::Hobbit.character, race: Faker::Creature::Dog.breed, size: ['small', 'medium', 'large'].sample, description: Faker::Creature::Dog.meme_phrase, image: "https://picsum.photos/id/1025/4951/3301")
   # link the dog to its user
   faker_dog.user = faker_user
 
@@ -19,13 +19,13 @@
   faker_dog.save!
 end
 
-# create 3 booking per user
-3.times do
-  faker_booking = Booking.new(description: Faker::GreekPhilosophers.quote, date: Faker::Date.forward(days: 23), payed: false, confrimed: false)
+# create 30 random bookings
+30.times do
+  faker_booking = Booking.new(description: Faker::GreekPhilosophers.quote, date: Faker::Date.forward(days: 23), payed: false, confirmed: false)
   # assign booking to a random user
-  faker_booking.user = User.first(:order => "RANDOM()")
+  faker_booking.user = User.order("RANDOM()").first
   # assign booking to a random dog
-  faker_booking.dog = Dog.first(:order => "RANDOM()")
+  faker_booking.dog = Dog.order("RANDOM()").first
 
   #save the booking
   faker_booking.save!
