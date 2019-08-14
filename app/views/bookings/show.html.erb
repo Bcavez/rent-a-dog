@@ -1,9 +1,11 @@
-<h1>Booking for <%= @dog[:name] %> and <%= @user[:name] %></h1>
+<h1>Booking for <%= link_to @dog[:name], dog_path(@dog) %> and <%= link_to @user[:name], user_path(@user) %></h1>
 
 <%= image_tag(@dog[:image]) %>
 <p>Description: <%= @booking[:description] %></p>
 <p>Date: <%= @booking[:date] %></p>
 <p>Confirmed?: <%= @booking[:confirmed] ? 'yes' : 'no' %></p>
+
+<%= link_to "Back to #{@dog[:name]}'s page", dog_path(@dog) %>
 
 <!--
   TO ADD LATER
