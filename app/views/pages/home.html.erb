@@ -11,8 +11,12 @@
   <div class="cards">
       <% @top_ten.each do |dog| %>
         <div class="card-dog">
-          <%= cl_image_tag dog.photo, height: 200, width: 250, crop: :fill %>
-            <%= link_to dog.name.upcase, preview_dog_path(dog), class: "links-sessions" %>
+         <%= cl_image_tag dog[:photo], height: 200, width: 250, crop: :fill %>
+            <% if current_user %>
+              <%= link_to dog[:name].upcase, dog_path(dog), class: "links-sessions" %>
+            <% else %>
+              <%= link_to dog[:name].upcase, preview_dog_path(dog), class: "links-sessions" %>
+            <%end%>
         </div>
       <% end %>
   </div>

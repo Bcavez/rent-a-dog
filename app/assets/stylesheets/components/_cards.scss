@@ -35,7 +35,7 @@ h3, h2, h1, p {
 }
 
 .card-dog {
-  width: 200px;
+  width: 15vw;
   text-align: center;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
@@ -45,15 +45,13 @@ h3, h2, h1, p {
 }
 
 .card-show {
-  width: 80%;
   text-align: center;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   color: $gbl;
-  margin: 20px auto;
   padding: 10px;
-  height: 75%;
-  overflow: scroll;
+  // height: 75%;
+  // overflow: scroll;
   p, h2, h3 {
     text-align: left;
     margin-left: 5%;
@@ -71,7 +69,7 @@ h3, h2, h1, p {
 
 .bookings {
   border-radius: 5px;
-  height: 70%;
+  height: 90%;
   overflow: scroll;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   color: $gbl;
@@ -84,19 +82,20 @@ h3, h2, h1, p {
   }
   margin-top: 20px;
   position: absolute;
-  bottom: 150px;
+  bottom: 0px;
 }
 
 .profile-page {
   display: grid;
-  grid-template-columns: 70fr 30fr;
+  grid-template-columns: 2fr 1fr;
+  margin: 10px auto;
 }
 
 .book-bookings {
   text-align: center;
-  margin: 20px auto;
   padding: 10px;
   position: relative;
+  padding-top: 20px;
 }
 
 .card-user {

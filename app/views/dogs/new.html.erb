@@ -1,3 +1,5 @@
+<div class="card-login">
+  <h2>ADD <br> A DOGGIE</h2>
   <%= simple_form_for(@dog) do |f| %>
     <%= f.error_notification %>
 
@@ -34,6 +36,7 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Add Dog" %>
+    <%= f.button :submit, "Add Dog", class: "btd-yel" %>
   </div>
 <% end %>
+  </div>  
