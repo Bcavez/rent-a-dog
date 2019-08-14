@@ -2,6 +2,8 @@
 <h1>My Bookings</h1>
 <% @bookings.each_with_index do |booking, i| %>
 
+  <% if policy(booking).show? %>
+
   <div class="card-show">
       <div class= "details">
 
@@ -17,13 +19,19 @@
         </div>
 
         <div class= "dog-owner">
-        <%= link_to "Go to your dog's page", dog_path(@dogs[i][:id]), , class: "links-sessions" %>
+        <%= link_to "Go to your dog's page", dog_path(@dogs[i][:id]), class: "links-sessions" %>
+        <% if policy(@renter[i]).show? %>
         <%= link_to "Renter's profile", user_path(@renter[i][:id]), class:"btd-yel" %>
+        <% end %>
+        <% if policy(booking).destroy? %>
         <%= link_to 'Delete this booking', booking_path(booking), method: :delete,
         data: { confirm: "Are you sure?" }, class:"btd-ind" %>
+        <% end %>
         </div>
 
       </div>
     </div>
     <%end%>
+    <%end%>
   </div>
+
