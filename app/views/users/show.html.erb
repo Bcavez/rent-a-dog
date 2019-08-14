@@ -4,7 +4,12 @@
         <tbody>
           <td colspan = "3"><h1>User Profile</h1></td>
           <tr>
-            <td rowspan="3" width="300px"><%= cl_image_tag @user.photo, height: 200, width: 250, crop: :fill %></td>
+            <td rowspan="3" width="300px">
+              <% if @user.photo.nil? %>
+                <%= image_tag "/images/user-solid.svg" %>
+              <% else %>
+                <%= cl_image_tag @user.photo, height: 200, width: 250, crop: :fill %></td>
+              <% end %>
             <td><%= @user.name %> <%= @user.lastname %></td>
           <tr>
             <td><%= @user.email %></td>

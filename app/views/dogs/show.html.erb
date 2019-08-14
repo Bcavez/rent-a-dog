@@ -1,7 +1,7 @@
 <h1>Dogs#show</h1>
 
 
-<%= image_tag(@dog[:image]) %>
+<%= cl_image_tag @dog.photo, height: 200, width: 250, crop: :fill %>
 <p>Name: <%= @dog[:name] %></p>
 <p>Breed: <%= @dog[:race] %></p>
 <p>Size: <%= @dog[:size] %></p>

@@ -15,8 +15,7 @@ class DogsController < ApplicationController
 
   def index
     # return array of all the dogs in the DB
-    @dogs = Dog.all
-    authorize @dogs
+    @dogs = policy_scope(Dog)
   end
 
   def new
@@ -28,10 +27,11 @@ class DogsController < ApplicationController
   def create
     # create the dog with the params from the form
     @dog = Dog.new(dog_params)
+    # @dog.photo = "/images/index.png" if @dog.photo.nil?
+
     authorize @dog
     # find the owner of the dog from the params of the form
-    @user = User.find(params[:user_id])
-    raise
+    @user = current_user
     # set the owner to the dog
     @dog.user = @user
 
@@ -49,7 +49,7 @@ class DogsController < ApplicationController
   def update
     # goes to show page of the dog if update is successfull.
     if @dog.update(dog_params)
-      redirect_to dog_path(@dog)
+      redirect_to dogs_path
     else
       render :edit
     end
@@ -59,7 +59,7 @@ class DogsController < ApplicationController
     @user = @dog.user
     @dog.destroy
 
-    redirect_to user_path(@user)
+    redirect_to dogs_path
   end
 
   def preview
@@ -86,6 +86,6 @@ class DogsController < ApplicationController
   end
 
   def dog_params
-    params.require(:dog).permit(:name, :race, :size, :description, :available, :image)
+    params.require(:dog).permit(:name, :race, :size, :description, :available, :photo)
   end
 end

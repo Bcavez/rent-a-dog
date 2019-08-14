@@ -7,22 +7,27 @@
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "name" }%>
+
     <%= f.input :description,
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "lastname" }%>
+
     <%= f.input :race,
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "email" }%>
+
     <%= f.input :size,
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "address" }%>
+
     <%= f.input :available,
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "available" }%>
+
     <%= f.input :photo %>
     <%= f.input :photo_cache, as: :hidden %>
 
