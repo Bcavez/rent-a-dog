@@ -49,7 +49,7 @@ class DogsController < ApplicationController
   def update
     # goes to show page of the dog if update is successfull.
     if @dog.update(dog_params)
-      redirect_to dogs_path
+      redirect_to dog_path(@dog)
     else
       render :edit
     end
@@ -59,7 +59,7 @@ class DogsController < ApplicationController
     @user = @dog.user
     @dog.destroy
 
-    redirect_to dogs_path
+    redirect_to user_path(@user)
   end
 
   def preview
