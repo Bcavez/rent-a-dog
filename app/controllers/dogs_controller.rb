@@ -26,8 +26,6 @@ class DogsController < ApplicationController
   def create
     # create the dog with the params from the form
     @dog = Dog.new(dog_params)
-    # find the owner of the dog from the params of the form
-    @user = User.find(params[:user_id])
     # set the owner to the dog
     @dog.user = @user
 

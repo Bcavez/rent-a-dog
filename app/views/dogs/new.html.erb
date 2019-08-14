@@ -1,0 +1,10 @@
+<%= simple_form_for @dog do |d| %>
+  <%= d.input :name %>
+  <%= d.input :race %>
+  <%= d.input :size %>
+  <%= d.input :description %>
+  <%= d.input :available %>
+  <%= d.input :image %>
+
+  <%= d.button :submit, "Add dog" %>
+<% end %>
