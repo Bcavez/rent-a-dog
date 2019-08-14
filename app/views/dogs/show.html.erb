@@ -4,7 +4,7 @@
 
     <div class="card-show">
       <h1><%= @dog[:name] %></h1>
-      <%= cl_image_tag @dog.photo, height: 200, width: 250, crop: :fill %>
+      <%= cl_image_tag @dog.photo, width: 200, height: 150, crop: :fill %>
       <br>
       <div class= "details">
 
@@ -38,7 +38,7 @@
             <p><%= booking[:date] %></p>
             <p><%= booking[:description] %></p>
             <br>
-          <%= link_to 'more details on this booking', booking_path(booking), class: "bdt-yw" %>
+          <%= link_to 'more details on this booking', booking_path(booking), class: "links-sessions" %>
           <br>
           <% end %>
       </div>
