@@ -11,7 +11,7 @@
   <div class="cards">
       <% @top_ten.each do |dog| %>
         <div class="card-dog">
-          <img src= "<%= dog.image %>" alt="dog">
+          <%= cl_image_tag dog.photo, height: 200, width: 250, crop: :fill %>
             <%= link_to dog.name.upcase, preview_dog_path(dog), class: "links-sessions" %>
         </div>
       <% end %>

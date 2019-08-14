@@ -15,17 +15,23 @@ class DogsController < ApplicationController
 
   def index
     # return array of all the dogs in the DB
-    @dogs = Dog.all
+    @dogs = policy_scope(Dog)
   end
 
   def new
     # pass a new dog empty dog instance to the view
     @dog = Dog.new
+    authorize @dog
   end
 
   def create
     # create the dog with the params from the form
     @dog = Dog.new(dog_params)
+    # @dog.photo = "/images/index.png" if @dog.photo.nil?
+
+    authorize @dog
+    # find the owner of the dog from the params of the form
+    @user = current_user
     # set the owner to the dog
     @dog.user = @user
 
@@ -71,6 +77,7 @@ class DogsController < ApplicationController
   def set_dog
     # give the dog instance to the view
     @dog = Dog.find(params[:id])
+    authorize @dog
   end
 
   def set_user
@@ -79,6 +86,6 @@ class DogsController < ApplicationController
   end
 
   def dog_params
-    params.require(:dog).permit(:name, :race, :size, :description, :available, :image)
+    params.require(:dog).permit(:name, :race, :size, :description, :available, :photo)
   end
 end
