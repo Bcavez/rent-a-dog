@@ -24,6 +24,7 @@ class DogsController < ApplicationController
   end
 
   def create
+    raise
     # create the dog with the params from the form
     @dog = Dog.new(dog_params)
     # set the owner to the dog

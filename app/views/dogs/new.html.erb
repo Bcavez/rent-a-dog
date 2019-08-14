@@ -1,10 +1,10 @@
 <%= simple_form_for :dog do |d| %>
-  <%= f.input :name %>
-  <%= f.input :race %>
-  <%= f.input :size %>
-  <%= f.input :description %>
-  <%= f.input :available %>
-  <%= f.input :image %>
+  <%= d.input :name %>
+  <%= d.input :race %>
+  <%= d.input :size %>
+  <%= d.input :description %>
+  <%= d.input :available %>
+  <%= d.input :image %>
 
-  <%= f.button :submit, "Add dog" %>
+  <%= d.button :submit, "Add dog" %>
 <% end %>
