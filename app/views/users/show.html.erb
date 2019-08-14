@@ -12,5 +12,26 @@
           <h1 class="text-center"><%= link_to 'Add a new dog', new_dog_path %></h1>
       </div>
     </div>
+
+  <div class="card-user">
+    <h1>My dogs</h1>
+    <% @dogs.each do |dog| %>
+      <p><%= link_to dog[:name], dog_path(dog) %></p>
+      <%= image_tag(dog[:image]) %>
+    <% end %>
+  </div>
+
+  
+  <div class="card-user">
+    <h1>My bookings</h1>
+    <% @bookings.each do |booking| %>
+      <p>Date: <%= booking[:date] %></p>
+      <p>Description: <%= booking[:description] %></p>
+      <p><%= link_to 'More details', booking_path(booking) %></p>
+    <% end %>
+  </div>
+
 </div>
-<% end %>
+
+
+

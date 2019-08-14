@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-  # a guest can create a user, a user can see his profile and edit his profile
+  # a guest can create a user, a user can see his profile and dashboard
   resources :users, only: [:show] do
     member do
       get 'dashboard'
@@ -13,9 +13,10 @@ Rails.application.routes.draw do
     member do
       get 'preview'
     end
+    # a user can create a new booking
     resources :bookings, only: [:new, :create]
   end
-  # can see details of one booking, create and delete.
+  # a user can see details of one booking and delete.
   resources :bookings, only: [:show, :destroy]
   # can create a review
   resources :reviews, only: [:new, :create]
