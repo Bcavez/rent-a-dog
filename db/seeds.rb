@@ -27,7 +27,7 @@
     )
 
   url = "https://source.unsplash.com/collection/1270951"
-  user_placeholder_url = "https://picsum.photos/200"
+  user_placeholder_url = "https://source.unsplash.com/collection/162326"
   # link the dog to its user
   faker_dog.user = faker_user
   faker_user.remote_photo_url = user_placeholder_url
