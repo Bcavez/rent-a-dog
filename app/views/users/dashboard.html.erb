@@ -16,10 +16,9 @@
           <p><%= booking[:payed] ? 'yes' : 'no' %></p>
         </div>
 
-        <div class= "dog-owner">
-        <%= link_to "Go to your dog's page", dog_path(@dogs[i][:id]), class: "links-sessions" %>
-        <%= link_to "Renter's profile", user_path(@renter[i][:id]), class:"btd-yel" %>
-        <%= link_to 'Delete this booking', booking_path(booking), method: :delete,
+        <div class= "book-actions">
+        <%= link_to "#{booking.dog.name.upcase}'S PROFILE", dog_path(@dogs[i][:id]), class:"btd-yel" %><br><br>
+        <%= link_to 'DELETE THIS BOOKING', booking_path(booking), method: :delete,
         data: { confirm: "Are you sure?" }, class:"btd-ind" %>
         </div>
 
