@@ -1,2 +1,11 @@
-<%= link_to 'delete', booking_path(booking), method: :delete,
+<h1>My Bookings</h1>
+<% @bookings.each_with_index do |booking, i| %>
+  <p>Date: <%= booking[:date] %></p>
+  <p>Description: <%= booking[:description] %></p>
+  <p>Confirmed?: <%= booking[:confirmed] ? 'yes' : 'no' %></p>
+  <p>Payed?: <%= booking[:payed] ? 'yes' : 'no' %></p>
+  <%= link_to "Go to your dog's page", dog_path(@dog[i][:id]) %>
+  <%= link_to "Renter's profile", user_path(@user[i][:id]) %>
+  <%= link_to 'Delete this booking', booking_path(booking), method: :delete,
   data: { confirm: "Are you sure?" } %>
+<% end %>
