@@ -1,10 +1,20 @@
-<%= simple_form_for @dog do |d| %>
-  <%= d.input :name %>
-  <%= d.input :race %>
-  <%= d.input :size %>
-  <%= d.input :description %>
-  <%= d.input :available %>
-  <%= d.input :image %>
+<div class="card-login">
+  <h2>ADD <br> A DOGGIE</h2>
+  <div class="form-inputs">
+  <%= simple_form_for @dog do |d| %>
+    <%= d.input :name %>
+    <%= d.input :race %>
+    <%= d.input :size %>
+    <%= d.input :description %>
+    <%= d.input :available %>
 
-  <%= d.button :submit, "Add dog" %>
-<% end %>
+<!--     <#%= d.input :photo %>
+    <#%= d.input :photo_cache, as: :hidden %> -->
+
+  </div>
+  <div class="form-actions">
+    <%= d.button :submit, "Add dog", class: 'btd-yel' %>
+  </div>
+  <% end %>
+</div>
+

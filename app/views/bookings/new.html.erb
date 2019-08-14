@@ -1,6 +1,16 @@
-<%= simple_form_for [@dog, @booking] do |b| %>
-  <%= b.input :description %>
-  <%= b.input :date %>
+<div class="card-login">
+  <h2>BOOKING DETAILS</h2>
+  <div class="form-inputs">
+    <%= simple_form_for [@dog, @booking] do |b| %>
+    <%= b.input :description %>
+    <%= b.input :date %>
+  </div>
+  <div class="form-actions">
+    <%= b.button :submit, "BOOK #{@dog.name.upcase}", class: 'btd-ind' %>
+  </div>
+  <% end %>
+</div>
 
-  <%= b.button :submit, "Book the dog" %>
-<% end %>
+
+
+
