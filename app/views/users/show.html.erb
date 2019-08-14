@@ -17,7 +17,7 @@
     <h1>My dogs</h1>
     <% @dogs.each do |dog| %>
       <p><%= link_to dog[:name], dog_path(dog) %></p>
-      <%= image_tag(dog[:image]) %>
+      <%= cl_image_tag dog.photo, width: 75, crop: :fill %>
     <% end %>
   </div>
 
@@ -32,7 +32,6 @@
   </div>
 <% end %>
 </div>
-<% end %>
 
 
 
