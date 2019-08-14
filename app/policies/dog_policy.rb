@@ -21,6 +21,10 @@ class DogPolicy < ApplicationPolicy
     true
   end
 
+  def preview?
+    true
+  end
+
   private
 
   def user_is_owner_or_admin?
