@@ -4,8 +4,8 @@
   <p>Description: <%= booking[:description] %></p>
   <p>Confirmed?: <%= booking[:confirmed] ? 'yes' : 'no' %></p>
   <p>Payed?: <%= booking[:payed] ? 'yes' : 'no' %></p>
-  <%= link_to "Go to your dog's page", dog_path(@dog[i][:id]) %>
-  <%= link_to "Renter's profile", user_path(@user[i][:id]) %>
+  <%= link_to "Go to your dog's page", dog_path(@dogs[i][:id]) %>
+  <%= link_to "Renter's profile", user_path(@user[:id]) %>
   <%= link_to 'Delete this booking', booking_path(booking), method: :delete,
   data: { confirm: "Are you sure?" } %>
 <% end %>

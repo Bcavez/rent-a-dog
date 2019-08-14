@@ -9,12 +9,13 @@ class UsersController < ApplicationController
 
   def dashboard
     # a user can see all of his bookings
-    @bookings = PostPolicy::Scope.new(current_user, Booking).resolve
+    @bookings = BookingPolicy::Scope.new(current_user, Booking).resolve
     # send an array of all the dogs associated with the bookings to the views
     @dogs = @bookings.map(&:dog)
     # send an array of all the renter associated with the bookings to the views
     @renter = @bookings.map(&:user)
 
+    authorize @bookings
     # authorize @user
   end
 
