@@ -15,7 +15,8 @@
     email: Faker::Internet.email,
     password: Faker::Internet.password(min_length: 8),
     payment: false,
-    photo: "https://picsum.photos/200"
+    # Replace later with CLOUDINARY STUFF
+    # photo: "https://picsum.photos/200"
     )
   # create a fake dog
   faker_dog = Dog.new(
@@ -25,9 +26,11 @@
     description: Faker::Creature::Dog.meme_phrase,
     )
 
-  url = "https://source.unsplash.com/random"
+  url = "https://source.unsplash.com/collection/1270951"
+  user_placeholder_url = "https://source.unsplash.com/collection/162326"
   # link the dog to its user
   faker_dog.user = faker_user
+  faker_user.remote_photo_url = user_placeholder_url
   faker_dog.remote_photo_url = url
   # save to databse
   faker_user.save!
