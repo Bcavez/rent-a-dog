@@ -99,6 +99,7 @@ h3, h2, h1, p {
 }
 
 .card-user {
+  height: 250px;
   box-shadow: 5px 5px 10px $gris;
   display: flex;
   align-items: center;
@@ -106,7 +107,8 @@ h3, h2, h1, p {
 }
 
 #user{
-  width: 75px;
+  height: 100%;
+  width: auto;
 }
 
 #user-description {

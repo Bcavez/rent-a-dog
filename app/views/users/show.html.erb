@@ -2,21 +2,21 @@
 <h1>My Profile</h1>
 <% if policy(@user).show? %>
    <div class="card-user">
-    <%= cl_image_tag @user.photo, width: 75, crop: :fill %>
+    <%= cl_image_tag @user.photo, crop: :fill, id: "user" %>
       <div id="user-description">
         <h3>
           <%= @user.name %> <%= @user.lastname %>
         </h3>
           <p><%= @user.email %></p>
           <p><%= @user.address %></p>
-          <h1 class="text-center"><%= link_to 'Add a new dog', new_dog_path %></h1>
+          <%= link_to 'Add a new dog', new_dog_path, class: "links-sessions" %>
       </div>
     </div>
 
   <div class="card-user">
     <h1>My dogs</h1>
     <% @dogs.each do |dog| %>
-      <p><%= link_to dog[:name], dog_path(dog) %></p>
+      <%= link_to dog[:name], dog_path(dog), class: "links-sessions" %>
       <%= image_tag(dog[:image]) %>
     <% end %>
   </div>
@@ -27,7 +27,7 @@
     <% @bookings.each do |booking| %>
       <p>Date: <%= booking[:date] %></p>
       <p>Description: <%= booking[:description] %></p>
-      <p><%= link_to 'More details', booking_path(booking) %></p>
+      <%= link_to 'More details', booking_path(booking), class: "links-sessions" %>
     <% end %>
   </div>
 <% end %>

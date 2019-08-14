@@ -1,11 +1,29 @@
+<div class="container">
 <h1>My Bookings</h1>
 <% @bookings.each_with_index do |booking, i| %>
-  <p>Date: <%= booking[:date] %></p>
-  <p>Description: <%= booking[:description] %></p>
-  <p>Confirmed?: <%= booking[:confirmed] ? 'yes' : 'no' %></p>
-  <p>Payed?: <%= booking[:payed] ? 'yes' : 'no' %></p>
-  <%= link_to "Go to your dog's page", dog_path(@dog[i][:id]) %>
-  <%= link_to "Renter's profile", user_path(@user[i][:id]) %>
-  <%= link_to 'Delete this booking', booking_path(booking), method: :delete,
-  data: { confirm: "Are you sure?" } %>
-<% end %>
+
+  <div class="card-show">
+      <div class= "details">
+
+        <div class= "description">
+          <h3>Date:</h3>
+          <p><%= booking[:date] %></p>
+          <h3>Description:</h3>
+          <p><%= booking[:description] %></p>
+          <h3>Confirmed:</h3>
+          <p><%= booking[:confirmed] ? 'yes' : 'no' %></p>
+          <h3>Paid:</h3>
+          <p><%= booking[:payed] ? 'yes' : 'no' %></p>
+        </div>
+
+        <div class= "dog-owner">
+        <%= link_to "Go to your dog's page", dog_path(@dog[i][:id]), , class: "links-sessions" %>
+        <%= link_to "Renter's profile", user_path(@user[i][:id]), class:"btd-yel" %>
+        <%= link_to 'Delete this booking', booking_path(booking), method: :delete,
+        data: { confirm: "Are you sure?" }, class:"btd-ind" %>
+        </div>
+
+      </div>
+    </div>
+    <%end%>
+  </div>
