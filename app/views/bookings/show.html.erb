@@ -1,0 +1,10 @@
+<h1>Booking for <%= @dog[:name] %> and <%= @user[:name] %></h1>
+
+<%= image_tag(@dog[:image]) %>
+<p>Description: <%= @booking[:description] %></p>
+<p>Date: <%= @booking[:date] %></p>
+<p>Confirmed?: <%= booking[:confirmed] ? 'yes' : 'no' %></p>
+
+<!--
+  TO ADD LATER
+<p>Reviews</p> -->

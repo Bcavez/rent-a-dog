@@ -19,4 +19,5 @@
   <p><%= booking[:date] %></p>
   <p><%= booking[:description] %></p>
   <br>
+  <%= link_to 'more details on this booking', booking_path(booking) %>
 <% end %>

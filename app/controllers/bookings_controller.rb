@@ -3,8 +3,8 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :destroy]
   # sets the variable @dog for new and create
   before_action :set_dog, only: [:new, :create]
-  # sets the variable @user for dashboard new and create
-  before_action :set_user, only: [:dashboard, :new, :create]
+  # sets the variable @user for dashboard, show, new and create
+  before_action :set_user, only: [:dashboard, :show, :new, :create]
 
   def dashboard
     # a user can see all of his bookings
@@ -16,6 +16,7 @@ class BookingsController < ApplicationController
   end
 
   def show
+    @dog = @booking.dog
   end
 
   def new
