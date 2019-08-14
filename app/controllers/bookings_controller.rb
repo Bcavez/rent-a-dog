@@ -14,6 +14,7 @@ class BookingsController < ApplicationController
   def new
     # pass an empty booking instance to the view
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
@@ -21,7 +22,7 @@ class BookingsController < ApplicationController
     # set the user and dog to the booking
     @booking.user = @user
     @booking.dog = @dog
-
+    authorize @booking
     # if the booking is saved successfully, redirect to the booking show page
     if @booking.save
       redirect_to booking_path(@booking)
@@ -49,11 +50,13 @@ class BookingsController < ApplicationController
   def set_booking
     # query the booking instance from the DB using the params
     @booking = Booking.find(params[:id])
+    authorize @booking
   end
 
   def set_dog
     # query the dog instance from the DB using the params
     @dog = Dog.find(params[:dog_id])
+    authorize @dog
   end
 
   def booking_params
