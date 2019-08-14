@@ -17,7 +17,7 @@
         </div>
 
         <div class= "book-actions">
-        <%= link_to "#{booking.dog.name.upcase}'S PROFILE", dog_path(@dogs[i][:id]), class:"btd-yel" %><br><br>
+        <%= link_to "#{@dogs[i][:name].upcase}'S PROFILE", dog_path(@dogs[i][:id]), class:"btd-yel" %><br><br>
         <%= link_to 'DELETE THIS BOOKING', booking_path(booking), method: :delete,
         data: { confirm: "Are you sure?" }, class:"btd-ind" %>
          <!--<#%= link_to "Renter's profile", user_path(@renter[i][:id]), class:"btd-yel" %>-->
