@@ -1,11 +1,14 @@
-<h1>Dogs#index</h1>
-
-<div class="cards">
-  <% @dogs.each do |dog| %>
-    <div class="card-dog">
-      <%= dog[:name] %>
-      <%= image_tag(dog[:image]) %>
-    </div>
-  <% end %>
+<div class="container">
+  <br>
+  <h1>All Doggies :</h1>
+  <div class="cards">
+      <% @dogs.each do |dog| %>
+        <div class="card-dog">
+          <img src= "<%= dog.image %>" alt="dog">
+            <%= link_to dog.name.upcase, preview_dog_path(dog), class: "links-sessions" %>
+        </div>
+      <% end %>
+  </div>
 </div>
+
 

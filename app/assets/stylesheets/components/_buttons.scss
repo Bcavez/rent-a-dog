@@ -4,6 +4,14 @@ $lgb: #2F343B;
 $indigo: #1F0173;
 $yellow: #f8b739;
 
+.go-to {
+  text-align: center;
+  .btd-yel {
+    padding: 10px 100px !important;
+    margin: 20px;
+  }
+}
+
 .btd-ind, .btd-indw{
   color: $yellow ;
   padding: 5px 15px;
@@ -55,3 +63,4 @@ $yellow: #f8b739;
   background: $yellow;
   color: white;
 }
+
