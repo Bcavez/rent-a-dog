@@ -1,5 +1,6 @@
 <h1>Dogs#show</h1>
 
+<%= link_to 'Book this dog now !', new_dog_booking_path(@dog) %>
 
 <%= image_tag(@dog[:image]) %>
 <p>Name: <%= @dog[:name] %></p>
@@ -18,4 +19,5 @@
   <p><%= booking[:date] %></p>
   <p><%= booking[:description] %></p>
   <br>
+  <%= link_to 'more details on this booking', booking_path(booking) %>
 <% end %>
