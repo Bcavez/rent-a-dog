@@ -32,7 +32,7 @@ class BookingsController < ApplicationController
     @booking.dog = @dog
 
     # if the booking is saved successfully, redirect to the booking show page
-    if @booking.save!
+    if @booking.save
       redirect_to booking_path(@booking)
     # otherwise render new form
     else render :new
