@@ -1,23 +1,49 @@
-<h1>Dogs#show</h1>
+<div class="container">
 
-<%= link_to 'Book this dog now !', new_dog_booking_path(@dog) %>
+  <div class="profile-page">
 
-<%= cl_image_tag @dog.photo, height: 200, width: 250, crop: :fill %>
-<p>Name: <%= @dog[:name] %></p>
-<p>Breed: <%= @dog[:race] %></p>
-<p>Size: <%= @dog[:size] %></p>
+    <div class="card-show">
+      <h1><%= @dog[:name] %></h1>
+      <%= cl_image_tag @dog.photo, height: 200, width: 250, crop: :fill %>
+      <br>
+      <div class= "details">
 
-<p>Description: <%= @dog[:description] %></p>
+        <div class= "description">
+          <h3>Breed:</h3>
+          <p><%= @dog[:race] %></p>
+          <h3>Size:</h3>
+          <p><%= @dog[:size] %></p>
+          <h3>Description:</h3>
+          <p><%= @dog[:description] %></p>
+        </div>
 
-<br>
+        <div class= "dog-owner">
+          <h3>Owner:</h3>
+          <p><%= @owner[:name] %> <%= @owner[:lastname] %></p>
+          <h3>Contact:</h3>
+          <p><%= @owner[:email] %></p>
+        </div>
 
-<p>Owner: <%= @owner[:name] %> <%= @owner[:lastname] %></p>
-<p>Contact: <%= @owner[:email] %></p>
+      </div>
 
-<h2>Bookings</h2>
-<% @bookings.each do |booking| %>
-  <p><%= booking[:date] %></p>
-  <p><%= booking[:description] %></p>
-  <br>
-  <%= link_to 'more details on this booking', booking_path(booking) %>
-<% end %>
+
+    </div>
+
+    <div class= "book-bookings">
+      <%= link_to "BOOK #{@dog.name.upcase}","new_dog_booking_path(@dog)", class: "btd-yel-lg" %>
+
+      <div class= "bookings">
+          <h3>Bookings</h3>
+          <% @bookings.each do |booking| %>
+            <p><%= booking[:date] %></p>
+            <p><%= booking[:description] %></p>
+            <br>
+          <%= link_to 'more details on this booking', booking_path(booking), class: "bdt-yw" %>
+          <br>
+          <% end %>
+      </div>
+
+    </div>
+
+  </div>
+</div>

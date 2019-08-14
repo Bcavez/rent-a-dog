@@ -24,8 +24,14 @@ img {
   width: 90%;
 }
 
-h3, h2, h1 {
+h3, h2, h1, p {
   color: $indigo;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  margin: 10px auto;
 }
 
 .card-dog {
@@ -38,11 +44,78 @@ h3, h2, h1 {
   padding: 10px;
 }
 
+.card-show {
+  width: 80%;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  color: $gbl;
+  margin: 20px auto;
+  padding: 10px;
+  height: 75%;
+  overflow: scroll;
+  p, h2, h3 {
+    text-align: left;
+    margin-left: 5%;
+    line-height: 100%;
+  }
+}
 
-.cards {
+.details {
+  display:flex;
+  align-items: top;
+  justify-content:space-between;
+  margin: 10px auto;
+  padding: 20px;
+}
+
+.bookings {
+  border-radius: 5px;
+  height: 70%;
+  overflow: scroll;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  color: $gbl;
+  padding: 10px;
+    p, h2, h3 {
+    text-align: center;
+  }
+  p {
+    line-height: 95%;
+  }
+  margin-top: 20px;
+  position: absolute;
+  bottom: 150px;
+}
+
+.profile-page {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 70fr 30fr;
+}
+
+.book-bookings {
+  text-align: center;
+  margin: 20px auto;
+  padding: 10px;
+  position: relative;
+}
+
+.card-user {
+  box-shadow: 5px 5px 10px $gris;
+  display: flex;
+  align-items: center;
   margin: 10px auto;
 }
+
+#user{
+  width: 75px;
+}
+
+#user-description {
+  text-align: left;
+  margin: 10px;
+  line-height: 0.7;
+  font-size: 0.8em;
+}
+
 
 

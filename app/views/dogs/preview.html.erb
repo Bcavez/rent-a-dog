@@ -1,0 +1,23 @@
+<h1>Dogs#show</h1>
+
+<%= link_to 'Book this dog now !', new_dog_booking_path(@dog) %>
+
+<%= cl_image_tag @dog.photo, height: 200, width: 250, crop: :fill %>
+<p>Name: <%= @dog[:name] %></p>
+<p>Breed: <%= @dog[:race] %></p>
+<p>Size: <%= @dog[:size] %></p>
+
+<p>Description: <%= @dog[:description] %></p>
+
+<br>
+
+<p>Owner: <%= @owner[:name] %> <%= @owner[:lastname] %></p>
+<p>Contact: <%= @owner[:email] %></p>
+
+<h2>Bookings</h2>
+<% @bookings.each do |booking| %>
+  <p><%= booking[:date] %></p>
+  <p><%= booking[:description] %></p>
+  <br>
+  <%= link_to 'more details on this booking', booking_path(booking) %>
+<% end %>
