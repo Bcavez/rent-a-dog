@@ -1,3 +1,4 @@
+<% if policy(@user).show? %>
 <div class="container">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1">
       <table class="table table-bordered">
@@ -22,12 +23,5 @@
       <h1 class="text-center">Previous buddies</h1>
 
     </div>
-
-
-
-
-
-
-
-
 </div>
+<% end %>
