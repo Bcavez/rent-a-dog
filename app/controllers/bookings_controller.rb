@@ -3,17 +3,8 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :destroy]
   # sets the variable @dog for new and create
   before_action :set_dog, only: [:new, :create]
-  # sets the variable @user for dashboard, new and create
-  before_action :set_user, only: [:dashboard, :new, :create]
-
-  def dashboard
-    # a user can see all of his bookings
-    @bookings = Booking.where(user_id: @user[:id])
-    # send an array of all the dogs associated with the bookings to the views
-    @dogs = @bookings.map(&:dog)
-    # send an array of all the renter associated with the bookings to the views
-    @renter = @bookings.map(&:user)
-  end
+  # sets the variable @user for new and create
+  before_action :set_user, only: [:new, :create]
 
   def show
     @dog = @booking.dog
