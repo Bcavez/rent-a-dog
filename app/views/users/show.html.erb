@@ -1,3 +1,4 @@
+<% if policy(@user).show? %>
 <div class="container">
 <h1>My Profile</h1>
    <div class="card-user">
@@ -11,6 +12,5 @@
           <h1 class="text-center"><%= link_to 'Add a new dog', new_dog_path %></h1>
       </div>
     </div>
-
-
 </div>
+<% end %>

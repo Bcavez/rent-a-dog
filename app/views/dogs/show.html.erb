@@ -2,10 +2,9 @@
 
   <div class="profile-page">
 
-
     <div class="card-show">
       <h1><%= @dog[:name] %></h1>
-      <%= image_tag(@dog[:image]) %>
+      <%= cl_image_tag @dog.photo, height: 200, width: 250, crop: :fill %>
       <br>
       <div class= "details">
 
