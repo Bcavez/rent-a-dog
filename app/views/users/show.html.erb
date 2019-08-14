@@ -1,6 +1,6 @@
-<% if policy(@user).show? %>
 <div class="container">
 <h1>My Profile</h1>
+<% if policy(@user).show? %>
    <div class="card-user">
     <%= cl_image_tag @user.photo, width: 75, crop: :fill %>
       <div id="user-description">
@@ -21,7 +21,7 @@
     <% end %>
   </div>
 
-  
+
   <div class="card-user">
     <h1>My bookings</h1>
     <% @bookings.each do |booking| %>
@@ -30,7 +30,7 @@
       <p><%= link_to 'More details', booking_path(booking) %></p>
     <% end %>
   </div>
-
+<% end %>
 </div>
 
 
