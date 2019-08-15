@@ -10,20 +10,26 @@
                 autofocus: true,
                 input_html: { autocomplete: "name" }%>
 
+    <%= f.input :address,
+                required: true,
+                autofocus: true,
+                id: 'dog_address',
+                input_html: { autocomplete: "address" }%>
+
     <%= f.input :description,
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "name" }%>
+                input_html: { autocomplete: "description" }%>
 
     <%= f.input :race,
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "name" }%>
+                input_html: { autocomplete: "race" }%>
 
     <%= f.input :size,
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "name" }%>
+                input_html: { autocomplete: "size" }%>
 
     <%= f.input :available,
                 required: true,
@@ -39,4 +45,4 @@
     <%= f.button :submit, "Add Dog", class: "btd-yel" %>
   </div>
 <% end %>
-  </div>  
+  </div>

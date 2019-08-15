@@ -21,11 +21,18 @@ class DogsController < ApplicationController
   end
 
   def show
+    @marker =
     # give the bookings of the dog as an array to the views
     @bookings = @dog.bookings
 
     # give the use instance of the owner of the dog to the views
     @owner = @dog.user
+    @markers = [{
+        lat: @dog.latitude,
+        lng: @dog.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { dog: @dog }),
+        image_url: helpers.asset_url('/images/doge.png')
+      }]
 
     # give the reviews as an array to the views
     @reviews = @dog.reviews
@@ -38,12 +45,22 @@ class DogsController < ApplicationController
   end
 
   def index
+    @dogs = Dog.geocoded # returns all dogs with coordinates
+
+    @markers = @dogs.map do |dog|
+      {
+        lat: dog.latitude,
+        lng: dog.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { dog: dog }),
+        image_url: helpers.asset_url('doge.png')
+      }
+    end
+
     # return array of all the dogs in the DB
     # @dogs = policy_scope(Dog.includes(:user))
-    @dogs = Dog.all
 
-    # give the average rating of the dog as an integer
-    @stars = @dogs.map { |dog| Dog.average_rating(dog) }
+    # @dogs = Dog.all
+
   end
 
   def new
@@ -104,6 +121,6 @@ class DogsController < ApplicationController
   end
 
   def dog_params
-    params.require(:dog).permit(:name, :race, :size, :description, :available, :photo)
+    params.require(:dog).permit(:name, :race, :address, :size, :description, :available, :photo)
   end
 end
