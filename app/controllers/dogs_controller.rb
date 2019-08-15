@@ -22,7 +22,6 @@ class DogsController < ApplicationController
   end
 
   def show
-    @marker =
     # give the bookings of the dog as an array to the views
     @bookings = @dog.bookings
 

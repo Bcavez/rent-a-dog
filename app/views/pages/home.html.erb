@@ -20,7 +20,7 @@
       <% @top_ten.each_with_index do |dog, i| %>
         <div class="card-dog">
           <%= cl_image_tag dog.photo, height: 200, width: 100, crop: :fill %>
-            <p>Rating: <%= @stars ? @stars[i].round(2) : "no rating yet" %></p>
+            <p>Rating: <%= @stars[i].nil? ? "no rating yet" : @stars[i].round(2) %></p>
             <% if current_user %>
               <%= link_to dog[:name].upcase, dog_path(dog), class: "links-sessions" %>
             <% else %>
