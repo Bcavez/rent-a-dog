@@ -35,7 +35,7 @@ User.destroy_all
   faker_user.remote_photo_url = user_placeholder_url
   # faker_user.photo = user_placeholder_url
   faker_dog.remote_photo_url = url
-  # faker_dog.photo = "raw/upload/v1565862410/chowchow_eghzds"
+  # faker_dog.photo = "v1565862410/chowchow_eghzds.jpg"
   # save to databse
   faker_user.save!
   faker_dog.save!
