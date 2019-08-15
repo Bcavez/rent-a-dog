@@ -3,7 +3,8 @@ class UsersController < ApplicationController
   def show
     @dogs = policy_scope(Dog)
     @bookings = policy_scope(Booking)
-    @stars = @dogs.map { |dog| Dog.average_rating(dog) }
+    # @stars = @dogs.map { |dog| Dog.average_rating(dog) }
+    @stars = @dogs.map { |dog| dog.reviews.average(:rating) }
   end
 
   def dashboard

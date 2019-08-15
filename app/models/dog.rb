@@ -18,6 +18,6 @@ class Dog < ApplicationRecord
     length = array.length
     average = rating_array.sum.to_f / length
     # return the average rating float
-    return average
+    return average.round(2)
   end
 end

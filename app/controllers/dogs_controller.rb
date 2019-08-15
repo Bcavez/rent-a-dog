@@ -17,7 +17,9 @@ class DogsController < ApplicationController
     @authors = @reviews.map(&:user)
 
     # give the average rating of the dog as an integer
-    @stars = Dog.average_rating(@dog)
+    # @stars = Dog.average_rating(@dog)
+    @stars = @dog.map { |dog| dog.reviews.average(:rating) }
+
   end
 
   def show
@@ -34,7 +36,8 @@ class DogsController < ApplicationController
     @authors = @reviews.map(&:user)
 
     # give the average rating of the dog as an integer
-    @stars = Dog.average_rating(@dog)
+    # @stars = Dog.average_rating(@dog)
+    @stars = @dog.map { |dog| dog.reviews.average(:rating) }
   end
 
   def index
@@ -43,7 +46,8 @@ class DogsController < ApplicationController
     @dogs = Dog.all
 
     # give the average rating of the dog as an integer
-    @stars = @dogs.map { |dog| Dog.average_rating(dog) }
+    # @stars = @dogs.map { |dog| Dog.average_rating(dog) }
+    @stars = @dogs.map { |dog| dog.reviews.average(:rating) }
   end
 
   def new
