@@ -37,7 +37,7 @@ class ReviewsController < ApplicationController
     authorize @dog
   end
 
-  def booking_params
+  def review_params
     params.require(:review).permit(:description, :rating)
   end
 end

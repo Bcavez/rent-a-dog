@@ -56,5 +56,7 @@
   <p>Description: <%= review[:description] %></p>
 <% end %>
 
+<%= link_to 'REVIEW THE DOG', new_dog_review_path(@dog) %>
+
 <p>STARS OF THE DOG</p>
 <%= @stars %>

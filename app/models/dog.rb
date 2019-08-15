@@ -9,14 +9,14 @@ class Dog < ApplicationRecord
 
   mount_uploader :photo, PhotoUploader
 
-  def average_rating(dog)
+  def self.average_rating(dog)
     # replace the dog with an array of his reviews
     array = dog.reviews
     # replace each review object by the rating integer
-    array.map(&:rating)
+    rating_array = array.map(&:rating)
     # compute the average
     length = array.length
-    average = array.sum / length
+    average = rating_array.sum.to_f / length
     # return the average rating float
     return average
   end

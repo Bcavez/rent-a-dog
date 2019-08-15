@@ -31,7 +31,7 @@ class DogsController < ApplicationController
     @authors = @reviews.map(&:user)
 
     # give the average rating of the dog as an integer
-    @stars = average_rating(@dog)
+    @stars = Dog.average_rating(@dog)
   end
 
   def index
