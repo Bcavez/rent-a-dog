@@ -2,12 +2,20 @@
   <div class="container">
     <h1>Adopt <br> a <strong>doggie</strong></h1>
     <p>AVOID THE HASSLE</p>
-    <a class="btd-indw" href="#">GET STARTED</a>
+    <% if current_user %>
+      <p><%= link_to "GET STARTED, FIND A DOGGIE !", dogs_path, class: "btd-indw"%></p>
+      <p><%= link_to "ADD YOUR DOGGIE", new_dog_path, class: "btd-indw"%></p>
+    <% else %>
+      <p><%= link_to "GET STARTED, FIND A DOGGIE !", dogs_path, class: "btd-indw"%></p>
+      <p><%= link_to "SIGN YOUR DOGGIE UP !", new_user_session_path, class: "btd-indw"%></p>
+      <% end %>
+    </div>
+
   </div>
 </div>
 <br>
 <div class="container">
-  <h3> Tip Top Doggies : </h3>
+  <h3> Tip Top <strong>Doggies</strong></h3>
   <div class="cards">
       <% @top_ten.each do |dog| %>
         <div class="card-dog">
