@@ -31,7 +31,7 @@
     <div class="cards">
       <% @bookings.each do |booking| %>
       <div class="card-dog">
-        <h3><%=  @dogs[i][:name].upcase %></h3>
+        <h3><%=  @dog[:name].upcase %></h3>
         <p>Date: <%= booking[:date] %></p>
         <p>Description: <%= booking[:description] %></p>
         <%= link_to 'More details', booking_path(booking), class: "links-sessions" %>
