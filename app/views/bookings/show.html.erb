@@ -1,26 +1,23 @@
 
 <div class="container">
-<% if policy(@booking).show? %>
-  <div class="card-show">
-    <h1>Booking for <%= link_to @dog[:name], dog_path(@dog), class:"links-sessions" %> and <%= link_to @user[:name], user_path(@user), class:"links-sessions" %></h1>
 
-    <%= cl_image_tag @dog.photo, width: 200, height: 150, crop: :fill %>
-    <div class= "details">
-      <div class= "description">
-        <h3>Description</h3>
+  <% if policy(@booking).show? %>
+    <br><div class="card-user-bg">
+      <%= cl_image_tag @dog.photo, width: 200, height: 150, crop: :fill %>
+      <div class="user-description">
+        <h1>Playdate for <%= link_to @user[:name].capitalize, user_path(@user), class:"links-sessions" %> and <%= link_to @dog[:name], dog_path(@dog), class:"links-sessions" %> <i class="fas fa-paw"></i></h1>
+        <h3>What</h3>
         <p><%= @booking[:description] %></p>
-        <h3>Date</h3>
+        <h3>When</h3>
         <p><%= @booking[:date] %></p>
-        <h3>Confirmed</h3>
-        <p><%= @booking[:confirmed] ? 'yes' : 'no' %></p>
-      </div>
-      <div class= "dog-owner">
-        <%= link_to "Back to #{@dog[:name]}'s profile", dog_path(@dog), class:"btd-ind" %>
+        <h3><%= @booking[:confirmed] ? 'Booking confirmed !' : 'To be confirmed' %></h3>
+        <br><%= link_to "Back to #{@dog[:name]}'s profile", dog_path(@dog), class:"btd-ind" %>
       </div>
     </div>
-  </div>
-<% end %>
+  <%end%>
 </div>
+
+
 <!--
   TO ADD LATER
 <p>Reviews</p> -->
