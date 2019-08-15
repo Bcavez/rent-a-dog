@@ -22,7 +22,6 @@ class DogsController < ApplicationController
   end
 
   def show
-    @marker =
     # give the bookings of the dog as an array to the views
     @bookings = @dog.bookings
 
@@ -48,7 +47,6 @@ class DogsController < ApplicationController
 
   def index
     @dogs = Dog.geocoded # returns all dogs with coordinates
-
     @markers = @dogs.map do |dog|
       {
         lat: dog.latitude,
