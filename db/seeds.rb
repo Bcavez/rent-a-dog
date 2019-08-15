@@ -32,6 +32,7 @@ puts "Creatings users ..."
     race: Faker::Creature::Dog.breed,
     size: ['small', 'medium', 'large'].sample,
     description: Faker::Creature::Dog.meme_phrase,
+    address: Faker::Address.full_address,
     )
 
   url = "https://res.cloudinary.com/dx8gouewf/image/upload/v1565798934/pdw0qkmuurnlrmq9cyx2.jpg"
@@ -111,6 +112,7 @@ p dog1 = Dog.new(
   race: Faker::Creature::Dog.breed,
   size: ['small', 'medium', 'large'].sample,
   description: Faker::Creature::Dog.meme_phrase,
+  address: Faker::Address.full_address,
   )
 
 p dog2 = Dog.new(
@@ -118,6 +120,7 @@ p dog2 = Dog.new(
   race: Faker::Creature::Dog.breed,
   size: ['small', 'medium', 'large'].sample,
   description: Faker::Creature::Dog.meme_phrase,
+  address: Faker::Address.full_address,
   )
 
 
