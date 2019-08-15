@@ -15,6 +15,7 @@ class DogsController < ApplicationController
 
   def index
     # return array of all the dogs in the DB
+    # @dogs = policy_scope(Dog.includes(:user))
     @dogs = Dog.all
   end
 

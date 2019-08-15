@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+User.destroy_all
+
 10.times do
   # create a fake user
   faker_user = User.new(
@@ -48,3 +50,16 @@ end
   #save the booking
   faker_booking.save!
 end
+
+admin = User.new(
+  name: "Admin",
+  lastname: "TheAdmin",
+  address: "adminaddress",
+  email: "admin@admin.com",
+  password: "administrator",
+  payment: false,
+  admin: true,
+  )
+
+admin.remote_photo_url = "https://source.unsplash.com/collection/162326"
+admin.save!
