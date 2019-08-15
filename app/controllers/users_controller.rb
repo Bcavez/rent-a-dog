@@ -6,9 +6,12 @@ class UsersController < ApplicationController
   end
 
   def dashboard
-    # a user can see all of his bookings
+    # a user can see all of his bookings, but owner will not yet see all the bookings for his dogs
     @bookings = BookingPolicy::Scope.new(current_user, Booking).resolve
-    # @bookings = policy_scope(Booking)
+
+    # TODO: Load the dogs of the user in a variable
+    # TODO: Load the booking where dog is in the list of dogs from the owner
+
     # send an array of all the dogs associated with the bookings to the views
     @dogs = @bookings.map(&:dog)
     # send an array of all the renter associated with the bookings to the views
