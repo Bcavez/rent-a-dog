@@ -2,7 +2,7 @@
 <br><h1>My Profile</h1>
 <% if policy(@user).show? %>
    <div class="card-user">
-    <%= cl_image_tag @user.photo, crop: :fill, id: "user" %>
+    <%= cl_image_tag @user.photo, crop: :fill, id: "user", gravity: :face %>
       <div class="user-description">
         <h3>
           <%= @user.name %> <%= @user.lastname %>
