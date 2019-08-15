@@ -28,3 +28,9 @@
     </div>
 </div>
 
+<% @reviews.each_with_index do |review, i| %>
+  <p>Author: <%= @authors[i][:name] %> <%= @authors[i][:lastname] %></p>
+  <p>Rating: <%= review[:rating] %></p>
+  <p>Description: <%= review[:description] %></p>
+<% end %>
+

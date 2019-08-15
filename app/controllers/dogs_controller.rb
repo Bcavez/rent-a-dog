@@ -3,14 +3,32 @@ class DogsController < ApplicationController
   before_action :set_user, only: [:new, :create]
   before_action :set_dog, only: [:show, :edit, :update, :destroy, :preview]
 
+  def preview
+    # give the bookings of the dog as an array to the views
+    @bookings = @dog.bookings
+
+    # give the user instance of the owner of the dog to the views
+    @owner = @dog.user
+
+    # give the reviews as an array to the views
+    @reviews = @dog.reviews
+
+    # give the user who created the review as an array with index associated to @reviews
+    @authors = @reviews.map(&:user)
+  end
+
   def show
     # give the bookings of the dog as an array to the views
     @bookings = @dog.bookings
+
     # give the use instance of the owner of the dog to the views
     @owner = @dog.user
 
-    # FOR LATER, give the reviews as an array to the views
-    # @reviews = @dog.reviews
+    # give the reviews as an array to the views
+    @reviews = @dog.reviews
+
+    # give the user who created the review as an array with index associated to @reviews
+    @authors = @reviews.map(&:user)
   end
 
   def index
@@ -61,16 +79,6 @@ class DogsController < ApplicationController
     @dog.destroy
 
     redirect_to user_path(@user)
-  end
-
-  def preview
-    # give the bookings of the dog as an array to the views
-    @bookings = @dog.bookings
-    # give the user instance of the owner of the dog to the views
-    @owner = @dog.user
-
-    # FOR LATER, give the reviews as an array to the views
-    # @reviews = @dog.reviews
   end
 
   private
