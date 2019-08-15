@@ -6,11 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+puts "Destroying existing users :"
 User.destroy_all
+
+
+puts "Creatings users ..."
 
 10.times do
   # create a fake user
-  faker_user = User.new(
+  p faker_user = User.create(
     name: Faker::Superhero.prefix,
     lastname: Faker::Superhero.name,
     address: Faker::Movies::LordOfTheRings.location,
@@ -21,27 +25,29 @@ User.destroy_all
     # photo: "https://picsum.photos/200"
     )
   # create a fake dog
-  faker_dog = Dog.new(
+
+  p faker_dog = Dog.new(
     name: Faker::Movies::Hobbit.character,
     race: Faker::Creature::Dog.breed,
     size: ['small', 'medium', 'large'].sample,
     description: Faker::Creature::Dog.meme_phrase,
     )
 
-  url = "https://source.unsplash.com/collection/1270951"
-  user_placeholder_url = "https://source.unsplash.com/collection/162326"
+  url = "https://res.cloudinary.com/dx8gouewf/image/upload/v1565867015/rau9af2s8pxdzmw3kjuh.jpg"
+  user_placeholder_url = "https://res.cloudinary.com/dx8gouewf/image/upload/v1565798933/cv1ksi2n9o5uxqkqjedx.jpg"
   # link the dog to its user
   faker_dog.user = faker_user
   faker_user.remote_photo_url = user_placeholder_url
-  # faker_user.photo = user_placeholder_url
   faker_dog.remote_photo_url = url
-  # faker_dog.photo = "v1565862410/chowchow_eghzds.jpg"
   # save to databse
-  faker_user.save!
   faker_dog.save!
+  faker_user.save!
 end
 
+puts "Done creating users & dogs ! Congrats"
 # create 30 random bookings
+
+puts "Creating bookings ..."
 30.times do
   faker_booking = Booking.new(description: Faker::GreekPhilosophers.quote, date: Faker::Date.forward(days: 23), payed: false, confirmed: false)
   # assign booking to a random user
@@ -53,6 +59,8 @@ end
   faker_booking.save!
 end
 
+puts "Creating admin ..."
+
 admin = User.new(
   name: "Admin",
   lastname: "TheAdmin",
@@ -63,6 +71,7 @@ admin = User.new(
   admin: true,
   )
 
-admin.remote_photo_url = "https://source.unsplash.com/collection/162326"
-# admin.photo = "https://res.cloudinary.com/dx8gouewf/image/upload/v1565797168/pkdz24lkvsgp1epzeceb.svg"
+puts "Done creating bookings & admin !"
+
+admin.remote_photo_url = "https://res.cloudinary.com/dx8gouewf/image/upload/v1565797168/pkdz24lkvsgp1epzeceb.svg"
 admin.save!
