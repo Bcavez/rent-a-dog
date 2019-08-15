@@ -2,8 +2,6 @@
 <div class="container">
 <% if policy(@booking).show? %>
   <div class="card-show">
-
-
     <h1>Booking for <%= link_to @dog[:name], dog_path(@dog), class:"links-sessions" %> and <%= link_to @user[:name], user_path(@user), class:"links-sessions" %></h1>
 
     <%= cl_image_tag @dog.photo, width: 200, height: 150, crop: :fill %>
