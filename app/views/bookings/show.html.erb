@@ -1,14 +1,28 @@
+
+<div class="container">
 <% if policy(@booking).show? %>
-<h1>Booking for <%= link_to @dog[:name], dog_path(@dog) %> and <%= link_to @user[:name], user_path(@user) %></h1>
+  <div class="card-show">
 
-<%= cl_image_tag @dog.photo, width: 200, height: 150, crop: :fill %>
-<p>Description: <%= @booking[:description] %></p>
-<p>Date: <%= @booking[:date] %></p>
-<p>Confirmed?: <%= @booking[:confirmed] ? 'yes' : 'no' %></p>
 
-<%= link_to "Back to #{@dog[:name]}'s page", dog_path(@dog) %>
+    <h1>Booking for <%= link_to @dog[:name], dog_path(@dog), class:"links-sessions" %> and <%= link_to @user[:name], user_path(@user), class:"links-sessions" %></h1>
+
+    <%= cl_image_tag @dog.photo, width: 200, height: 150, crop: :fill %>
+    <div class= "details">
+      <div class= "description">
+        <h3>Description</h3>
+        <p><%= @booking[:description] %></p>
+        <h3>Date</h3>
+        <p><%= @booking[:date] %></p>
+        <h3>Confirmed</h3>
+        <p><%= @booking[:confirmed] ? 'yes' : 'no' %></p>
+      </div>
+      <div class= "dog-owner">
+        <%= link_to "Back to #{@dog[:name]}'s profile", dog_path(@dog), class:"btd-ind" %>
+      </div>
+    </div>
+  </div>
 <% end %>
-
+</div>
 <!--
   TO ADD LATER
 <p>Reviews</p> -->

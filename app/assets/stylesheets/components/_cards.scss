@@ -20,10 +20,6 @@ $yellow: #f8b739;
   }
 }
 
-img {
-  width: 90%;
-}
-
 h3, h2, h1, p {
   color: $indigo;
 }
@@ -42,6 +38,10 @@ h3, h2, h1, p {
   color: $gbl;
   margin: 20px auto;
   padding: 10px;
+  img {
+  width: 90%;
+  height: auto;
+}
 }
 
 .card-show {
@@ -116,6 +116,10 @@ h3, h2, h1, p {
   margin: 10px;
   line-height: 0.7;
   font-size: 0.8em;
+}
+
+.book-actions {
+  text-align: right;
 }
 
 
