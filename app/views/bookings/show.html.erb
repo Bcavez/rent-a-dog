@@ -9,7 +9,8 @@
         <h3>What</h3>
         <p><%= @booking[:description] %></p>
         <h3>When</h3>
-        <p><%= @booking[:date] %></p>
+        <p>From: <%= @booking[:startdate] %></p>
+        <p>To: <%= @booking[:enddate] %></p>
         <h3><%= @booking[:confirmed] ? 'Booking confirmed !' : 'To be confirmed' %></h3>
         <br><%= link_to "Back to #{@dog[:name]}'s profile", dog_path(@dog), class:"btd-ind" %>
       </div>
