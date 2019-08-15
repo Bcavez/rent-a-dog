@@ -29,6 +29,9 @@ class DogsController < ApplicationController
 
     # give the user who created the review as an array with index associated to @reviews
     @authors = @reviews.map(&:user)
+
+    # give the average rating of the dog as an integer
+    @stars = average_rating(@dog)
   end
 
   def index
