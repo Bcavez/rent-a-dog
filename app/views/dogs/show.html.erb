@@ -1,12 +1,15 @@
 <div class="container">
+  <h1><%=@dog.name.capitalize%>'s Profile</h1>
 
   <div class="profile-page">
 
     <div class="card-show">
-      <h1><%= @dog[:name] %></h1>
       <%= cl_image_tag @dog.photo, width: 200, height: 150, crop: :fill %>
       <br>
-      <div class= "details">
+       <div class="fullspace">
+         <%= link_to "BOOK #{@dog.name.upcase}", new_dog_booking_path(@dog), class: "btd-yel-lg" %>
+       </div>
+      <div class= "profile-grid">
 
         <div class= "description">
           <h3>Breed:</h3>
@@ -29,11 +32,13 @@
 
     </div>
 
-    <div class= "book-bookings">
-      <%= link_to "BOOK #{@dog.name.upcase}", new_dog_booking_path(@dog), class: "btd-yel-lg" %>
+    <div class= "map-bookings">
+
+      <div class="map">
+      </div>
 
       <div class= "bookings">
-          <h3>Bookings</h3>
+          <h3><%= "#{@dog.name.capitalize}'s Bookings"%></h3>
           <% @bookings.each do |booking| %>
             <p><%= booking[:date] %></p>
             <p><%= booking[:description] %></p>

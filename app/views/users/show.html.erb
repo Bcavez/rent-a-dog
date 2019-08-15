@@ -1,9 +1,9 @@
 <div class="container">
-<h1>My Profile</h1>
+<br><h1>My Profile</h1>
 <% if policy(@user).show? %>
    <div class="card-user">
-    <%= cl_image_tag @user.photo, crop: :fill, id: "user" %>
-      <div id="user-description">
+    <%= cl_image_tag @user.photo, crop: :fill, id: "user", gravity: :face %>
+      <div class="user-description">
         <h3>
           <%= @user.name %> <%= @user.lastname %>
         </h3>
@@ -12,35 +12,47 @@
           <%= link_to 'Add a new dog', new_dog_path, class: "links-sessions" %>
       </div>
     </div>
-
-  <div class="card-user">
-    <h1>My dogs</h1>
-    <div class="cards">
-      <% @dogs.each_with_index do |dog, i| %>
-        <div class="card-dog">
-          <h3><%= link_to dog[:name].upcase, dog_path(dog), class: "links-sessions" %></h3>
-          <%= cl_image_tag dog.photo, width: 200, height: 150, crop: :fill %>
-          <p>RATING: <%= @stars ? @stars[i] : "no rating yet" %></p>
-        </div>
-      <% end %>
-    </div>
+  <br><br>
+  <div class="profile-grid">
+    <h3>My Doggies</h3>
+    <h3>My Bookings</h3>
   </div>
 
+  <div class="profile-grid">
 
-  <div class="card-user">
-    <h1>My bookings</h1>
-
-    <div class="cards">
-      <% @bookings.each do |booking| %>
-      <div class="card-dog">
-        <h3><%=  booking.dog.name.upcase %></h3>
-        <p>Date: <%= booking[:date] %></p>
-        <p>Description: <%= booking[:description] %></p>
-        <%= link_to 'More details', booking_path(booking), class: "links-sessions" %>
+    <div class="card-user-s">
+      <div class="cards">
+        <% @dogs.each do |dog| %>
+          <div class="card-dog">
+            <%= cl_image_tag dog.photo, width: 200, height: 150, crop: :fill %>
+            <p>RATING: <%= @stars ? @stars[i] : "no rating yet" %></p>
+            <h3><%= link_to dog[:name].upcase, dog_path(dog), class: "links-sessions" %></h3>
+            <%= link_to "EDIT", edit_dog_path(dog), class:"btd-yels"  %>
+            <%= link_to "REMOVE", dog_path(dog),
+                method: :delete,
+                data: { confirm: "Are you sure you want to delete this dog?" }, class:"btd-yels" %>
+          </div>
+        <% end %>
       </div>
-      <% end %>
     </div>
+
+
+
+    <div class="card-user-s">
+      <div class="cards">
+        <% @bookings.each do |booking| %>
+        <div class="card-dog">
+          <h3><%=  booking.dog.name.upcase %></h3>
+          <p>Date: <%= booking[:date] %></p>
+          <p>Description: <%= booking[:description] %></p>
+          <%= link_to 'MORE DETAILS', booking_path(booking), class: "btd-yels" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+
   </div>
+
 <% end %>
 </div>
 
