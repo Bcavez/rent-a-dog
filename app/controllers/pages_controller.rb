@@ -7,6 +7,7 @@ class PagesController < ApplicationController
     @top_ten = Dog.first(10)
     # pass the average ratings of each dogs to the views to be displayed on the card
     # to use with each_with_index in the views. order of both arrays is the same
-    @stars = @top_ten.map { |dog| Dog.average_rating(dog) }
+    # @stars = @top_ten.map { |dog| Dog.average_rating(dog) }
+    @stars = @top_ten.map { |dog| dog.reviews.average(:rating) }
   end
 end

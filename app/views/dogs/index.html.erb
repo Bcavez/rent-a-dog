@@ -8,6 +8,7 @@
           <% @dogs.each do |dog| %>
             <div class="card-dog">
               <%= cl_image_tag dog.photo, height: 200, width: 250, crop: :fill %>
+              <p>STARS OF THE DOG: <%= @stars ? @stars[i].round(2) : "no rating yet" %></p>
                 <% if current_user %>
                   <%= link_to dog.name.upcase, dog_path(dog), class: "links-sessions" %>
                 <% else %>
