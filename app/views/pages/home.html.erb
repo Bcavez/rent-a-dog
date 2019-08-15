@@ -9,9 +9,10 @@
 <div class="container">
   <h3> Tip Top Doggies : </h3>
   <div class="cards">
-      <% @top_ten.each do |dog| %>
+      <% @top_ten.each_with_index do |dog, i| %>
         <div class="card-dog">
           <%= cl_image_tag dog.photo, height: 200, width: 100, crop: :fill %>
+            <p>Rating: <%= @stars[i] %></p>
             <% if current_user %>
               <%= link_to dog[:name].upcase, dog_path(dog), class: "links-sessions" %>
             <% else %>
