@@ -64,4 +64,4 @@
 <%= link_to 'REVIEW THE DOG', new_dog_review_path(@dog) %>
 
 <p>STARS OF THE DOG</p>
-<%= @stars ? @stars : "no rating yet" %>
+<%= @stars ? @stars.round(2) : "no rating yet" %>

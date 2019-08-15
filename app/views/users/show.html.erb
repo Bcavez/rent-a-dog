@@ -25,7 +25,7 @@
         <% @dogs.each_with_index do |dog, i| %>
           <div class="card-dog">
             <%= cl_image_tag dog.photo, width: 200, height: 150, crop: :fill %>
-            <p>RATING: <%= @stars ? @stars[i] : "no rating yet" %></p>
+            <p>RATING: <%= @stars ? @stars[i].round(2) : "no rating yet" %></p>
             <h3><%= link_to dog[:name].upcase, dog_path(dog), class: "links-sessions" %></h3>
             <%= link_to "EDIT", edit_dog_path(dog), class:"btd-yels"  %>
             <%= link_to "REMOVE", dog_path(dog),
