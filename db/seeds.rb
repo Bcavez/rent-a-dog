@@ -45,20 +45,32 @@ puts "Creatings users ..."
   faker_user.save!
 end
 
-puts "Done creating users & dogs ! Congrats"
+puts "Done creating users & dogs with reviews ! Congrats"
 # create 30 random bookings
 
-puts "Creating bookings ..."
+puts "Creating bookings and reviews..."
 30.times do
-  faker_booking = Booking.new(description: Faker::GreekPhilosophers.quote, date: Faker::Date.forward(days: 23), payed: false, confirmed: false)
-  # assign booking to a random user
-  faker_booking.user = User.order("RANDOM()").first
+  p faker_booking = Booking.new(description: Faker::GreekPhilosophers.quote, date: Faker::Date.forward(days: 23), payed: false, confirmed: false)
+  p faker_review = Review.new(
+    description: Faker::Movies::VForVendetta.quote,
+    rating: rand(0..5),
+  )
+  # assign booking and review to a random user
+  random_user = User.order("RANDOM()").first
+  faker_booking.user = random_user
+  faker_review.user = random_user
   # assign booking to a random dog
-  faker_booking.dog = Dog.order("RANDOM()").first
+  random_dog = Dog.order("RANDOM()").first
+  faker_booking.dog = random_dog
+  faker_review.dog = random_dog
 
   #save the booking
   faker_booking.save!
+  #save the review
+  faker_review.save!
 end
+
+puts "Done creating bookings and reviews !"
 
 puts "Creating admin ..."
 
@@ -72,7 +84,7 @@ admin = User.new(
   admin: true,
   )
 
-puts "Done creating bookings & admin !"
+puts "Done creating admin !"
 
 admin.photo = open("https://res.cloudinary.com/dx8gouewf/image/upload/v1565798930/xwecm1a8xs9tunarokjj.jpg")
 admin.save!
