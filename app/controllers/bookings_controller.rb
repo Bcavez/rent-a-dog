@@ -1,3 +1,5 @@
+require 'date'
+
 class BookingsController < ApplicationController
   # sets the variable @booking for show and delete
   before_action :set_booking, only: [:show, :destroy]
@@ -62,7 +64,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:description, :date)
+    params.require(:booking).permit(:description, :startdate, :enddate)
   end
 
   def user_not_authorized
