@@ -15,6 +15,9 @@ class DogsController < ApplicationController
 
     # give the user who created the review as an array with index associated to @reviews
     @authors = @reviews.map(&:user)
+
+    # give the average rating of the dog as an integer
+    @stars = Dog.average_rating(@dog)
   end
 
   def show
@@ -38,6 +41,9 @@ class DogsController < ApplicationController
     # return array of all the dogs in the DB
     # @dogs = policy_scope(Dog.includes(:user))
     @dogs = Dog.all
+
+    # give the average rating of the dog as an integer
+    @stars = @dogs.map { |dog| Dog.average_rating(dog) }
   end
 
   def new

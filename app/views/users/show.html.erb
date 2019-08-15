@@ -20,6 +20,7 @@
         <div class="card-dog">
           <h3><%= link_to dog[:name].upcase, dog_path(dog), class: "links-sessions" %></h3>
           <%= cl_image_tag dog.photo, width: 200, height: 150, crop: :fill %>
+          <p>RATING: <%=  %></p>
         </div>
       <% end %>
     </div>

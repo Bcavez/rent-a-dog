@@ -2,9 +2,10 @@
   <br>
   <h1>All Doggies :</h1>
   <div class="cards">
-      <% @dogs.each do |dog| %>
+      <% @dogs.each_with_index do |dog, i| %>
         <div class="card-dog">
           <%= cl_image_tag dog.photo, height: 200, width: 250, crop: :fill %>
+          <p>STARS OF THE DOG: <%= @stars[i] %></p>
             <% if current_user %>
               <%= link_to dog.name.upcase, dog_path(dog), class: "links-sessions" %>
             <% else %>
