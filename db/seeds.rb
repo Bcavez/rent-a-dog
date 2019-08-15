@@ -50,7 +50,13 @@ puts "Done creating users & dogs with reviews ! Congrats"
 
 puts "Creating bookings and reviews..."
 30.times do
-  p faker_booking = Booking.new(description: Faker::GreekPhilosophers.quote, date: Faker::Date.forward(days: 23), payed: false, confirmed: false)
+  p faker_booking = Booking.new(
+    description: Faker::GreekPhilosophers.quote,
+    startdate: Faker::Date.forward(days: 23),
+    enddate: Faker::Date.forward(days: 24),
+    payed: false,
+    confirmed: false,
+  )
   p faker_review = Review.new(
     description: Faker::Movies::VForVendetta.quote,
     rating: rand(0..5),
@@ -128,7 +134,13 @@ dadou.save!
 
 # seed some of dadou's bookings
 3.times do
-  p dadou_booking = Booking.new(description: Faker::GreekPhilosophers.quote, date: Faker::Date.forward(days: 23), payed: false, confirmed: false)
+  p dadou_booking = Booking.new(
+    description: Faker::GreekPhilosophers.quote,
+    startdate: Faker::Date.forward(days: 23),
+    enddate: Faker::Date.forward(days: 24),
+    payed: false,
+    confirmed: false,
+  )
   p dadou_review = Review.new(
     description: Faker::Movies::VForVendetta.quote,
     rating: rand(0..5),
