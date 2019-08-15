@@ -16,11 +16,11 @@
   <div class="card-user">
     <h1>My dogs</h1>
     <div class="cards">
-      <% @dogs.each do |dog| %>
+      <% @dogs.each_with_index do |dog, i| %>
         <div class="card-dog">
           <h3><%= link_to dog[:name].upcase, dog_path(dog), class: "links-sessions" %></h3>
           <%= cl_image_tag dog.photo, width: 200, height: 150, crop: :fill %>
-          <p>RATING: <%= dog[:reviews] ? @stars : "no rating yet" %></p>
+          <p>RATING: <%= @stars ? @stars[i] : "no rating yet" %></p>
         </div>
       <% end %>
     </div>
