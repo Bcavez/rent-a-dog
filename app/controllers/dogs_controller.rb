@@ -14,9 +14,18 @@ class DogsController < ApplicationController
   end
 
   def index
+    @dogs = Dog.geocoded # returns all dogs with coordinates
+
+    @markers = @dogs.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude
+      }
+    end
+
     # return array of all the dogs in the DB
     # @dogs = policy_scope(Dog.includes(:user))
-    @dogs = Dog.all
+    # @dogs = Dog.all
   end
 
   def new
