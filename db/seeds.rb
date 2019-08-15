@@ -28,14 +28,14 @@ User.destroy_all
     description: Faker::Creature::Dog.meme_phrase,
     )
 
-  url = ""
-  user_placeholder_url = "https://res.cloudinary.com/dx8gouewf/image/upload/v1565798933/cv1ksi2n9o5uxqkqjedx.jpg"
+  url = "https://source.unsplash.com/collection/1270951"
+  user_placeholder_url = "https://source.unsplash.com/collection/162326"
   # link the dog to its user
   faker_dog.user = faker_user
-  # faker_user.remote_photo_url = user_placeholder_url
-  faker_user.photo = user_placeholder_url
-  # faker_dog.remote_photo_url = url
-  faker_dog.photo = "chowchow_eghzds.jpg"
+  faker_user.remote_photo_url = user_placeholder_url
+  # faker_user.photo = user_placeholder_url
+  faker_dog.remote_photo_url = url
+  # faker_dog.photo = "raw/upload/v1565862410/chowchow_eghzds"
   # save to databse
   faker_user.save!
   faker_dog.save!
@@ -63,6 +63,6 @@ admin = User.new(
   admin: true,
   )
 
-# admin.remote_photo_url = "https://source.unsplash.com/collection/162326"
-admin.photo = "https://res.cloudinary.com/dx8gouewf/image/upload/v1565797168/pkdz24lkvsgp1epzeceb.svg"
+admin.remote_photo_url = "https://source.unsplash.com/collection/162326"
+# admin.photo = "https://res.cloudinary.com/dx8gouewf/image/upload/v1565797168/pkdz24lkvsgp1epzeceb.svg"
 admin.save!
