@@ -30,6 +30,12 @@ h3, h2, h1, p {
   margin: 10px auto;
 }
 
+.cardsf {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 10px auto;
+}
+
 .card-dog {
   width: 15vw;
   text-align: center;
@@ -46,6 +52,7 @@ h3, h2, h1, p {
 
 .card-show {
   text-align: center;
+  margin: 0 auto;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   color: $gbl;
@@ -88,10 +95,6 @@ h3, h2, h1, p {
   padding: 10px;
 }
 
-.map {
-  height: 39%;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-}
 
 .profile-page {
   display: grid;
@@ -104,6 +107,12 @@ h3, h2, h1, p {
   text-align: center;
   position: relative;
 }
+
+.map {
+  height: 39%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
 
 .card-user{
   height: 250px;
@@ -174,5 +183,21 @@ h3, h2, h1, p {
   grid-gap: 2%;
 }
 
+.index {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 0%;
+}
+
+.index-dog {
+  overflow:scroll;
+  box-shadow: 5px 5px 10px $gris;
+  background-color:white;
+  padding: 10px;
+}
+
+.find {
+  box-shadow: 5px 5px 10px $gris;
+}
 
 

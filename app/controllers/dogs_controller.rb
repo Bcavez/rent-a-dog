@@ -4,10 +4,17 @@ class DogsController < ApplicationController
   before_action :set_dog, only: [:show, :edit, :update, :destroy, :preview]
 
   def show
+    @marker =
     # give the bookings of the dog as an array to the views
     @bookings = @dog.bookings
     # give the use instance of the owner of the dog to the views
     @owner = @dog.user
+    @markers = [{
+        lat: @dog.latitude,
+        lng: @dog.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { dog: @dog }),
+        image_url: helpers.asset_url('/images/doge.png')
+      }]
 
     # FOR LATER, give the reviews as an array to the views
     # @reviews = @dog.reviews
@@ -16,10 +23,12 @@ class DogsController < ApplicationController
   def index
     @dogs = Dog.geocoded # returns all dogs with coordinates
 
-    @markers = @dogs.map do |flat|
+    @markers = @dogs.map do |dog|
       {
-        lat: flat.latitude,
-        lng: flat.longitude
+        lat: dog.latitude,
+        lng: dog.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { dog: dog }),
+        image_url: helpers.asset_url('doge.png')
       }
     end
 
@@ -96,6 +105,6 @@ class DogsController < ApplicationController
   end
 
   def dog_params
-    params.require(:dog).permit(:name, :race, :size, :description, :available, :photo)
+    params.require(:dog).permit(:name, :race, :address, :size, :description, :available, :photo)
   end
 end
