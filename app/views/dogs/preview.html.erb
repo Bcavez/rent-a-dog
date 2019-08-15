@@ -1,12 +1,16 @@
 
 <div class="container">
+  <br><h1><%=@dog.name.capitalize%>'s Profile</h1>
 
 
-    <div class="card-show">
-      <h1><%= @dog[:name] %></h1>
-      <%= cl_image_tag "v1565862410/chowchow_eghzds.jpg", width: 200, height: 150, crop: :fill %>
+  <div class="card-show">
+      <%= cl_image_tag @dog.photo, width: 200, height: 150, crop: :fill %>
+
       <br>
-      <div class= "details">
+       <div class="fullspace">
+         <%= link_to "BOOK #{@dog.name.upcase}", new_dog_booking_path(@dog), class: "btd-yel-lg" %>
+       </div>
+      <div class= "profile-grid">
 
         <div class= "description">
           <h3>Breed:</h3>
@@ -22,10 +26,12 @@
           <p><%= @owner[:name] %> <%= @owner[:lastname] %></p>
           <h3>Contact:</h3>
           <p><%= @owner[:email] %></p>
-          <%= link_to 'Book this dog now !', new_dog_booking_path(@dog), class:"btd-yel" %>
         </div>
+
       </div>
-    </div>
+
+  </div>
+
 </div>
 
 <% @reviews.each_with_index do |review, i| %>

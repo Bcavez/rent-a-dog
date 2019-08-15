@@ -7,18 +7,22 @@
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "name" }%>
-    <%= f.input :description,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "lastname" }%>
-    <%= f.input :race,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :size,
+    <%= f.input :address,
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "address" }%>
+    <%= f.input :description,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "description" }%>
+    <%= f.input :race,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "race" }%>
+    <%= f.input :size,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "size" }%>
     <%= f.input :available,
                 required: true,
                 autofocus: true,
@@ -29,7 +33,7 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Update Dog" %>
+    <%= f.button :submit, "Update Dog", class: "btd-yel" %>
   </div>
 
 <% end %>
