@@ -10,6 +10,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   def dashboard?
-    true
+    # raise
+    record == user || user.admin
   end
 end

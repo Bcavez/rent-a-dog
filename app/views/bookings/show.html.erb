@@ -1,5 +1,6 @@
 
 <div class="container">
+
   <% if policy(@booking).show? %>
     <br><div class="card-user-bg">
       <%= cl_image_tag @dog.photo, width: 200, height: 150, crop: :fill %>
