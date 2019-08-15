@@ -1,0 +1,12 @@
+<div class="card-login">
+  <h2>REVIEW DETAILS</h2>
+  <div class="form-inputs">
+    <%= simple_form_for [@dog, @review] do |b| %>
+    <%= b.input :description %>
+    <%= b.input :rating %>
+  </div>
+  <div class="form-actions">
+    <%= b.button :submit, "SUBMIT REVIEW", class: 'btd-ind' %>
+  </div>
+  <% end %>
+</div>

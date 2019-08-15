@@ -15,10 +15,10 @@ Rails.application.routes.draw do
     end
     # a user can create a new booking
     resources :bookings, only: [:new, :create]
+    # can create a review
+    resources :reviews, only: [:new, :create]
   end
   # a user can see details of one booking and delete.
   resources :bookings, only: [:show, :destroy]
-  # can create a review
-  resources :reviews, only: [:new, :create]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

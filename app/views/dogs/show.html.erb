@@ -61,3 +61,14 @@
 
   </div>
 </div>
+
+<% @reviews.each_with_index do |review, i| %>
+  <p>Author: <%= @authors[i][:name] %> <%= @authors[i][:lastname] %></p>
+  <p>Rating: <%= review[:rating] %></p>
+  <p>Description: <%= review[:description] %></p>
+<% end %>
+
+<%= link_to 'REVIEW THE DOG', new_dog_review_path(@dog) %>
+
+<p>STARS OF THE DOG</p>
+<%= @stars ? @stars : "no rating yet" %>

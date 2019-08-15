@@ -9,6 +9,20 @@ class Dog < ApplicationRecord
 
   mount_uploader :photo, PhotoUploader
 
+
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+
+  def self.average_rating(dog)
+    # replace the dog with an array of his reviews
+    array = dog.reviews
+    # replace each review object by the rating integer
+    rating_array = array.map(&:rating)
+    # compute the average
+    length = array.length
+    average = rating_array.sum.to_f / length
+    # return the average rating float
+    return average
+  end
+
 end
