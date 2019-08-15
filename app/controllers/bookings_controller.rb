@@ -6,6 +6,8 @@ class BookingsController < ApplicationController
   # sets the variable @user for new and create
   before_action :set_user, only: [:new, :create]
 
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
   def show
     @dog = @booking.dog
     @user = @booking.user
@@ -61,5 +63,10 @@ class BookingsController < ApplicationController
 
   def booking_params
     params.require(:booking).permit(:description, :date)
+  end
+
+  def user_not_authorized
+    flash[:alert] = "You are not authorized to see the details of this booking."
+    redirect_to(request.referrer || root_path)
   end
 end
