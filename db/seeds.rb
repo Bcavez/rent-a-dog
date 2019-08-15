@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'open-uri'
 
 puts "Destroying existing users :"
 User.destroy_all
@@ -14,7 +15,7 @@ puts "Creatings users ..."
 
 10.times do
   # create a fake user
-  p faker_user = User.create(
+  p faker_user = User.new(
     name: Faker::Superhero.prefix,
     lastname: Faker::Superhero.name,
     address: Faker::Movies::LordOfTheRings.location,
@@ -33,12 +34,12 @@ puts "Creatings users ..."
     description: Faker::Creature::Dog.meme_phrase,
     )
 
-  url = "https://res.cloudinary.com/dx8gouewf/image/upload/v1565867015/rau9af2s8pxdzmw3kjuh.jpg"
+  url = "https://res.cloudinary.com/dx8gouewf/image/upload/v1565798934/pdw0qkmuurnlrmq9cyx2.jpg"
   user_placeholder_url = "https://res.cloudinary.com/dx8gouewf/image/upload/v1565798933/cv1ksi2n9o5uxqkqjedx.jpg"
   # link the dog to its user
   faker_dog.user = faker_user
-  faker_user.remote_photo_url = user_placeholder_url
-  faker_dog.remote_photo_url = url
+  faker_user.photo = open(user_placeholder_url)
+  faker_dog.photo = open(url)
   # save to databse
   faker_dog.save!
   faker_user.save!
@@ -73,5 +74,5 @@ admin = User.new(
 
 puts "Done creating bookings & admin !"
 
-admin.remote_photo_url = "https://res.cloudinary.com/dx8gouewf/image/upload/v1565797168/pkdz24lkvsgp1epzeceb.svg"
+admin.photo = open("https://res.cloudinary.com/dx8gouewf/image/upload/v1565798930/xwecm1a8xs9tunarokjj.jpg")
 admin.save!
