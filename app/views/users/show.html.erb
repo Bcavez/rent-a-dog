@@ -15,33 +15,30 @@
 
   <div class="card-user">
     <h1>My dogs</h1>
-    <% @dogs.each do |dog| %>
-      <%= link_to dog[:name], dog_path(dog), class: "links-sessions" %>
-      <%= cl_image_tag dog.photo, width: 200, height: 150, crop: :fill %>
-      <% if policy(dog).edit? %>
-        <%= link_to 'Edit dog', edit_dog_path(dog), class:"btd-ind" %>
+    <div class="cards">
+      <% @dogs.each do |dog| %>
+        <div class="card-dog">
+          <h3><%= link_to dog[:name].upcase, dog_path(dog), class: "links-sessions" %></h3>
+          <%= cl_image_tag dog.photo, width: 200, height: 150, crop: :fill %>
+        </div>
       <% end %>
-      <% if policy(dog).destroy? %>
-        <%= link_to 'Remove dog', dog_path(dog), method: :delete,
-        data: { confirm: "Are you sure?" }, class:"btd-ind" %>
-      <% end %>
-    <% end %>
+    </div>
   </div>
 
 
   <div class="card-user">
     <h1>My bookings</h1>
-    <% @bookings.each do |booking| %>
-      <% if policy(booking).show? %>
+
+    <div class="cards">
+      <% @bookings.each do |booking| %>
+      <div class="card-dog">
+        <h3><%=  booking.dog.name.upcase %></h3>
         <p>Date: <%= booking[:date] %></p>
         <p>Description: <%= booking[:description] %></p>
         <%= link_to 'More details', booking_path(booking), class: "links-sessions" %>
-        <% if policy(booking).destroy? %>
-          <%= link_to 'Delete this booking', booking_path(booking), method: :delete,
-          data: { confirm: "Are you sure?" }, class:"btd-ind" %>
-        <% end %>
+      </div>
       <% end %>
-    <% end %>
+    </div>
   </div>
 <% end %>
 </div>
