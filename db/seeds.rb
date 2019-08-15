@@ -86,5 +86,90 @@ admin = User.new(
 
 puts "Done creating admin !"
 
+puts "creating test user"
+
+p dadou = User.new(
+  name: "Dadou",
+  lastname: "des Bois",
+  address: Faker::Movies::LordOfTheRings.location,
+  email: "dadou@desbois.com",
+  password: "dadoudesbois",
+  payment: false,
+)
+
+p dog1 = Dog.new(
+  name: Faker::Movies::Hobbit.character,
+  race: Faker::Creature::Dog.breed,
+  size: ['small', 'medium', 'large'].sample,
+  description: Faker::Creature::Dog.meme_phrase,
+  )
+
+p dog2 = Dog.new(
+  name: Faker::Movies::Hobbit.character,
+  race: Faker::Creature::Dog.breed,
+  size: ['small', 'medium', 'large'].sample,
+  description: Faker::Creature::Dog.meme_phrase,
+  )
+
+# seed some of dadou's bookings
+3.times do
+  p dadou_booking = Booking.new(description: Faker::GreekPhilosophers.quote, date: Faker::Date.forward(days: 23), payed: false, confirmed: false)
+  p dadou_review = Review.new(
+    description: Faker::Movies::VForVendetta.quote,
+    rating: rand(0..5),
+  )
+  dadou_booking.user = dadou
+  dadou_review.user = dadou
+  # assign booking to a random dog
+  random_dog = Dog.order("RANDOM()").first
+  dadou_booking.dog = random_dog
+  dadou_review.dog = random_dog
+
+  #save the booking
+  dadou_booking.save!
+  #save the review
+  dadou_review.save!
+end
+
+# add some reviews to dadou's dogs
+
+3.times do
+  p fake_review = Review.new(
+    description: Faker::Movies::VForVendetta.quote,
+    rating: rand(0..5),
+  )
+  fake_review.dog = dog1
+  # assign review to a random user
+  random_user = User.order("RANDOM()").first
+  fake_review.user = random_user
+  fake_review.save!
+end
+
+3.times do
+  p fake_review = Review.new(
+    description: Faker::Movies::VForVendetta.quote,
+    rating: rand(0..5),
+  )
+  fake_review.dog = dog2
+  # assign review to a random user
+  random_user = User.order("RANDOM()").first
+  fake_review.user = random_user
+  fake_review.save!
+end
+
+url = "https://res.cloudinary.com/dx8gouewf/image/upload/v1565798934/pdw0qkmuurnlrmq9cyx2.jpg"
+user_placeholder_url = "https://res.cloudinary.com/dx8gouewf/image/upload/v1565798933/cv1ksi2n9o5uxqkqjedx.jpg"
+dog1.user = dadou
+dog2.user = dadou
+dadou.photo = open(user_placeholder_url)
+dog1.photo = open(url)
+dog2.photo = open(url)
+dog1.save!
+dog2.save!
+dadou.save!
+
+
+puts "Done creating test user !"
+
 admin.photo = open("https://res.cloudinary.com/dx8gouewf/image/upload/v1565798930/xwecm1a8xs9tunarokjj.jpg")
 admin.save!
