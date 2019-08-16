@@ -55,6 +55,27 @@ h3, h2, h1, p {
   }
 }
 
+.card-book {
+  width: 100%;
+  height: auto;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  color: $indigo;
+  margin: 20px auto;
+  padding: 10px;
+  img {
+  width: 100%;
+  height: auto;
+  }
+  i {
+    color: $yellow;
+  }
+  p , h4{
+    text-align: left;
+  }
+}
+
 .card-show {
   text-align: center;
   margin: 0px;

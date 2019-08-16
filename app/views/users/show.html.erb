@@ -44,13 +44,14 @@
 
 
 
-    <div class="card-user-s">
-      <div class="cards">
+    <div class="card-user-dogs">
+      <div class="cardsf">
         <% @bookings.each do |booking| %>
-        <div class="card-dog">
-          <h3><%=  booking.dog.name.upcase %></h3>
-          <p>Date: <%= booking[:date] %></p>
-          <p>Description: <%= booking[:description] %></p>
+        <div class="card-book">
+          <h3> <%=  booking.dog.name.upcase%> <i class="fas fa-paw"></i> </h3>
+          <h4> <%= booking[:description] %></h4>
+            <p><%= booking.startdate.strftime("From %m/%d/%Y at %H:%I") %>
+            <br><%= booking.enddate.strftime("To %m/%d/%Y at %H:%I") %></p>
           <%= link_to 'MORE DETAILS', booking_path(booking), class: "btd-yels" %>
         </div>
         <% end %>
