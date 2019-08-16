@@ -17,7 +17,7 @@
 <div class="container">
   <h3> Tip Top <strong>Doggies</strong></h3>
   <div class="cards">
-      <% @top_ten.each_with_index do |dog, i| %>
+      <% @top_five.each_with_index do |dog, i| %>
         <div class="card-dog">
           <%= cl_image_tag dog.photo, height: 200, width: 100, crop: :fill %>
             <% if @stars[i] %>
