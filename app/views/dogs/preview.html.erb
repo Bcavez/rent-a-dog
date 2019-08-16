@@ -1,57 +1,61 @@
 
 <div class="container">
-  <br><h1><%=@dog.name.capitalize%>
-        <% if @stars %>
-          <% @stars.round(0).to_i.times do %>
-            <i class="fas fa-star"></i>
-          <% end %>
-        <% end %>
-  </h1>
+  <div class="preview">
 
-
-  <div class="card-show">
-      <%= cl_image_tag @dog.photo, width: 200, height: 150, crop: :fill %>
-
-      <br>
-       <div class="fullspace">
-         <%= link_to "BOOK #{@dog.name.upcase}", new_dog_booking_path(@dog), class: "btd-yel-lg" %>
-       </div>
-      <div class= "profile-grid">
-
-        <div class= "description">
-          <h3>Breed:</h3>
-          <p><%= @dog[:race] %></p>
-          <h3>Size:</h3>
-          <p><%= @dog[:size] %></p>
-          <h3>Description:</h3>
-          <p><%= @dog[:description] %></p>
-        </div>
-
-        <div class= "dog-owner">
-          <h3>Owner:</h3>
-          <p><%= @owner[:name] %> <%= @owner[:lastname] %></p>
-          <h3>Contact:</h3>
-          <p><%= @owner[:email] %></p>
-        </div>
-
-      </div>
-
-  </div>
-
-  <br><h2><%= "#{@dog.name.capitalize}'s reviews"%></h2>
-      <%= link_to "REVIEW #{@dog.name.upcase}", new_dog_review_path(@dog), class:"btd-yw" %>
-    <% @reviews.each_with_index do |review, i| %>
-  <div class="card-rev">
-        <div class="user-description">
-            <h2>  <% review.rating.round(0).to_i.times do %>
-                <i class="fas fa-star"></i>
+    <br><h1><%=@dog.name.capitalize%>
+          <% if @stars %>
+            <% @stars.round(0).to_i.times do %>
+              <i class="fas fa-star"></i>
             <% end %>
-            </h2>
-            <h2><%= review[:description] %></h2>
-            <h3><%= @authors[i][:name] %> <%= @authors[i][:lastname] %></h3>
+          <% end %>
+    </h1>
+
+
+    <div class="card-show">
+        <%= cl_image_tag @dog.photo, width: 200, height: 150, crop: :fill %>
+
+        <br>
+         <div class="fullspace">
+           <%= link_to "BOOK #{@dog.name.upcase}", new_dog_booking_path(@dog), class: "btd-yel-lg" %>
+         </div>
+        <div class= "profile-grid">
+
+          <div class= "description">
+            <h3>Breed:</h3>
+            <p><%= @dog[:race] %></p>
+            <h3>Size:</h3>
+            <p><%= @dog[:size] %></p>
+            <h3>Description:</h3>
+            <p><%= @dog[:description] %></p>
+          </div>
+
+          <div class= "dog-owner">
+            <h3>Owner:</h3>
+            <p><%= @owner[:name] %> <%= @owner[:lastname] %></p>
+            <h3>Contact:</h3>
+            <p><%= @owner[:email] %></p>
+          </div>
+
         </div>
-      </div>
-  <% end %>
+
+    </div>
+    </div>
+
+    <br><h2><%= "#{@dog.name.capitalize}'s reviews"%></h2>
+        <%= link_to "REVIEW #{@dog.name.upcase}", new_dog_review_path(@dog), class:"btd-yw" %>
+
+      <% @reviews.each_with_index do |review, i| %>
+    <div class="card-rev">
+          <div class="user-description">
+              <h2>  <% review.rating.round(0).to_i.times do %>
+                  <i class="fas fa-star"></i>
+              <% end %>
+              </h2>
+              <h2><%= review[:description] %></h2>
+              <h3><%= @authors[i][:name] %> <%= @authors[i][:lastname] %></h3>
+          </div>
+        </div>
+    <% end %>
 
 </div>
 
