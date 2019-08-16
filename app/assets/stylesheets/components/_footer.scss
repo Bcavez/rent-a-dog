@@ -9,8 +9,6 @@ $yellow: #f8b739;
   height: 80px;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
-  position: fixed;
-  bottom: 0px;
   width: 100vw;
   i {
     font-size: 1.5em;
@@ -26,11 +24,11 @@ $yellow: #f8b739;
 }
 
 .footer-links a {
-  color: black;
-  opacity: 0.15;
+  color: $yellow;
   text-decoration: none;
   font-size: 24px;
   padding: 0px 10px;
+  opacity: 0.5;
 }
 
 .footer-links a:hover {
@@ -38,17 +36,22 @@ $yellow: #f8b739;
   opacity: 1;
 }
 
-.footer .fa-paw {
-  color: black;
-  opacity: 0.15;
+.footer > i.fa-paw {
+  color: $yellow;
+  opacity: 0.5;
 }
 
 .footer .fa-paw:hover {
-  color: $indigo;
   opacity: 1;
 }
 
+.footer-copyright {
+  color: $yellow;
+  opacity: 0.5;
+}
+
 .footer-copyright:hover {
-  color: $indigo;
   opacity: 1;
 }
+
+
