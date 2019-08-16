@@ -97,7 +97,7 @@ admin = User.new(
   )
 
 # admin.photo = open("https://res.cloudinary.com/dx8gouewf/image/upload/v1565798930/xwecm1a8xs9tunarokjj.jpg")
-admin.remote_photo_url = "https://res.cloudinary.com/dx8gouewf/image/upload/v1565798930/xwecm1a8xs9tunarokjj.jpg"
+admin.remote_photo_url = "https://picsum.photos/200"
 admin.save!
 
 puts "Done creating admin !"
@@ -130,16 +130,16 @@ p dog2 = Dog.new(
   )
 
 
-url = "https://res.cloudinary.com/dx8gouewf/image/upload/v1565798934/pdw0qkmuurnlrmq9cyx2.jpg"
-user_placeholder_url = "https://res.cloudinary.com/dx8gouewf/image/upload/v1565798933/cv1ksi2n9o5uxqkqjedx.jpg"
+# url = "https://res.cloudinary.com/dx8gouewf/image/upload/v1565798934/pdw0qkmuurnlrmq9cyx2.jpg"
+# user_placeholder_url = "https://res.cloudinary.com/dx8gouewf/image/upload/v1565798933/cv1ksi2n9o5uxqkqjedx.jpg"
 dog1.user = dadou
 dog2.user = dadou
 # dadou.photo = open(user_placeholder_url)
 # dog1.photo = open(url)
 # dog2.photo = open(url)
-dadou.remote.photo_url = user_placeholder_url
-dog1.remote_photo_url = url
-dog2.remote_photo_url = url
+dadou.remote.photo_url = "https://picsum.photos/200"
+dog1.remote_photo_url = "https://picsum.photos/200"
+dog2.remote_photo_url = "https://picsum.photos/200"
 dog1.save!
 dog2.save!
 dadou.save!
