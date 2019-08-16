@@ -3,8 +3,8 @@
   <div class="form-inputs">
     <%= simple_form_for [@dog, @booking] do |b| %>
     <%= b.input :description %>
-    <%= b.input :startdate %>
-    <%= b.input :enddate %>
+    <%= b.input :startdate, order: [:day, :month, :year] %>
+    <%= b.input :enddate, order: [:day, :month, :year] %>
   </div>
   <div class="form-actions">
     <%= b.button :submit, "BOOK #{@dog.name.upcase}", class: 'btd-ind' %>

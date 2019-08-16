@@ -9,7 +9,7 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :address, presence: true
 
-  has_many :dogs, dependent: :destroy
+  has_many :dogs, foreign_key: :owner_id, dependent: :destroy
   has_many :bookings, dependent: :destroy
   has_many :reviews, dependent: :destroy
   mount_uploader :photo, PhotoUploader

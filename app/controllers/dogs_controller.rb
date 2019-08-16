@@ -8,7 +8,7 @@ class DogsController < ApplicationController
     @bookings = @dog.bookings
 
     # give the user instance of the owner of the dog to the views
-    @owner = @dog.user
+    @owner = @dog.owner
 
     # give the reviews as an array to the views
     @reviews = @dog.reviews
@@ -26,7 +26,7 @@ class DogsController < ApplicationController
     @bookings = @dog.bookings
 
     # give the use instance of the owner of the dog to the views
-    @owner = @dog.user
+    @owner = @dog.owner
     @markers = [{
         lat: @dog.latitude,
         lng: @dog.longitude,
@@ -49,9 +49,9 @@ class DogsController < ApplicationController
 
     if params[:query].present?
       search = Dog.search_dog_scope(params[:query])
-      @dogs = search.geocoded
+      @dogs = search
     else
-      @dogs = Dog.geocoded # returns all dogs with coordinates
+      @dogs = Dog.all # returns all dogs with coordinates
     end
 
     @markers = @dogs.map do |dog|
@@ -85,8 +85,9 @@ class DogsController < ApplicationController
     # find the owner of the dog from the params of the form
     @user = current_user
     # set the owner to the dog
-    @dog.user = @user
-
+    @dog.owner = @user
+    current_user.owner = true
+    current_user.save!
     # redirects to the show page of the dog if the create is successfull otherwise render new form
     if @dog.save
       redirect_to dog_path(@dog)
@@ -108,7 +109,7 @@ class DogsController < ApplicationController
   end
 
   def destroy
-    @user = @dog.user
+    @user = @dog.owner
     @dog.destroy
 
     redirect_to user_path(@user)
@@ -128,6 +129,6 @@ class DogsController < ApplicationController
   end
 
   def dog_params
-    params.require(:dog).permit(:name, :race, :address, :size, :description, :available, :photo)
+    params.require(:dog).permit(:name, :race, :address, :size, :description, :available, :photo, :owner_id)
   end
 end

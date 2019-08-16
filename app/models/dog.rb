@@ -8,7 +8,7 @@ class Dog < ApplicationRecord
   validates :address, presence: true
   has_many :bookings, dependent: :destroy
   has_many :reviews, dependent: :destroy
-  belongs_to :user
+  belongs_to :owner, class_name: 'User'
 
   mount_uploader :photo, PhotoUploader
 

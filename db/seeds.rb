@@ -22,28 +22,27 @@ puts "Creatings users ..."
     email: Faker::Internet.email,
     password: Faker::Internet.password(min_length: 8),
     payment: false,
-    # Replace later with CLOUDINARY STUFF
-    # photo: "https://picsum.photos/200"
+    owner: true
     )
-  # create a fake dog
 
+  user_placeholder_url = "https://res.cloudinary.com/dx8gouewf/image/upload/v1565798933/cv1ksi2n9o5uxqkqjedx.jpg"
+  faker_user.photo = open(user_placeholder_url)
+  faker_user.save!
+
+  # create a fake dog
   p faker_dog = Dog.new(
     name: Faker::Movies::Hobbit.character,
     race: Faker::Creature::Dog.breed,
     size: ['small', 'medium', 'large'].sample,
     description: Faker::Creature::Dog.meme_phrase,
     address: Faker::Address.full_address,
+    owner_id: faker_user.id
     )
 
   url = "https://res.cloudinary.com/dx8gouewf/image/upload/v1565798934/pdw0qkmuurnlrmq9cyx2.jpg"
-  user_placeholder_url = "https://res.cloudinary.com/dx8gouewf/image/upload/v1565798933/cv1ksi2n9o5uxqkqjedx.jpg"
-  # link the dog to its user
-  faker_dog.user = faker_user
-  faker_user.photo = open(user_placeholder_url)
   faker_dog.photo = open(url)
-  # save to databse
+
   faker_dog.save!
-  faker_user.save!
 end
 
 puts "Done creating users & dogs with reviews ! Congrats"
@@ -108,12 +107,18 @@ p dadou = User.new(
   payment: false,
 )
 
+url = "https://res.cloudinary.com/dx8gouewf/image/upload/v1565798934/pdw0qkmuurnlrmq9cyx2.jpg"
+user_placeholder_url = "https://res.cloudinary.com/dx8gouewf/image/upload/v1565798933/cv1ksi2n9o5uxqkqjedx.jpg"
+dadou.photo = open(user_placeholder_url)
+dadou.save!
+
 p dog1 = Dog.new(
   name: Faker::Movies::Hobbit.character,
   race: Faker::Creature::Dog.breed,
   size: ['small', 'medium', 'large'].sample,
   description: Faker::Creature::Dog.meme_phrase,
   address: Faker::Address.full_address,
+  owner_id: dadou.id
   )
 
 p dog2 = Dog.new(
@@ -122,19 +127,14 @@ p dog2 = Dog.new(
   size: ['small', 'medium', 'large'].sample,
   description: Faker::Creature::Dog.meme_phrase,
   address: Faker::Address.full_address,
+  owner_id: dadou.id
   )
 
 
-url = "https://res.cloudinary.com/dx8gouewf/image/upload/v1565798934/pdw0qkmuurnlrmq9cyx2.jpg"
-user_placeholder_url = "https://res.cloudinary.com/dx8gouewf/image/upload/v1565798933/cv1ksi2n9o5uxqkqjedx.jpg"
-dog1.user = dadou
-dog2.user = dadou
-dadou.photo = open(user_placeholder_url)
 dog1.photo = open(url)
 dog2.photo = open(url)
 dog1.save!
 dog2.save!
-dadou.save!
 
 # seed some of dadou's bookings
 3.times do
