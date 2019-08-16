@@ -1,15 +1,16 @@
 <div class="banner" >
   <div class="container">
-    <h1>Adopt <br> a <strong>doggie</strong></h1>
-    <p>AVOID THE HASSLE</p>
+    <h1>Adopt  a <strong>Doggie</strong> :
+      <br>For a few hours, a day... <br>or more ; )
+    </h1><br>
     <% if current_user %>
-      <p><%= link_to "GET STARTED, FIND A DOGGIE !", dogs_path, class: "btd-indw"%></p>
-      <p><%= link_to "ADD YOUR DOGGIE", new_dog_path, class: "btd-indw"%></p>
+      <p><%= link_to "MEET OUR DOGGIES !", dogs_path, class: "btd-indw"%>
+      <%= link_to "REGISTER YOUR OWN", new_dog_path, class: "btd-wind"%></p>
     <% else %>
-      <p><%= link_to "GET STARTED, FIND A DOGGIE !", dogs_path, class: "btd-indw"%></p>
-      <p><%= link_to "SIGN YOUR DOGGIE UP !", new_user_session_path, class: "btd-indw"%></p>
+      <p><%= link_to "GET STARTED, FIND A DOGGIE !", dogs_path, class: "btd-indw"%>
+      <%= link_to "REGISTER YOUR DOGGIE !", new_user_session_path, class: "btd-wind"%></p>
       <% end %>
-    </div>
+    <br></div>
 
   </div>
 </div>
