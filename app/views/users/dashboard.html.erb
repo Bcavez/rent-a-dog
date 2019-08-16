@@ -9,7 +9,11 @@
           <h2>Playdate with <%= link_to @dogs[i][:name], dog_path(@dogs[i][:id]), class:"links-sessions" %></h2>
           <h3>When:</h3>
 
-          <p><%= booking[:date] %></p>
+          <p>
+           <%= booking[:startdate].strftime("From %m/%d/%Y at %H:%I") %>
+           <%= booking[:enddate].strftime("To %m/%d/%Y at %H:%I") %>
+           </p>
+
           <h3>Playdate description:</h3>
           <p><%= booking[:description] %></p>
 
