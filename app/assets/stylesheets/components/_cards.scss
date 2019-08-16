@@ -47,7 +47,10 @@ h3, h2, h1, p {
   img {
   width: 90%;
   height: auto;
-}
+  }
+  i {
+    color: $yellow;
+  }
 }
 
 .card-show {
