@@ -32,6 +32,7 @@ puts "Creatings users ..."
     race: Faker::Creature::Dog.breed,
     size: ['small', 'medium', 'large'].sample,
     description: Faker::Creature::Dog.meme_phrase,
+    address: Faker::Address.full_address,
     )
 
   url = "https://res.cloudinary.com/dx8gouewf/image/upload/v1565798934/pdw0qkmuurnlrmq9cyx2.jpg"
@@ -50,10 +51,14 @@ puts "Done creating users & dogs with reviews ! Congrats"
 
 puts "Creating bookings and reviews..."
 30.times do
-  p faker_booking = Booking.new(description: Faker::GreekPhilosophers.quote,
+  p faker_booking = Booking.new(
+    description: Faker::GreekPhilosophers.quote,
     startdate: Faker::Date.forward(days: 23),
     enddate: Faker::Date.forward(days: 24),
-    payed: false, confirmed: false)
+    payed: false,
+    confirmed: false,
+  )
+
   p faker_review = Review.new(
     description: Faker::Movies::VForVendetta.quote,
     rating: rand(0..5),
@@ -108,6 +113,7 @@ p dog1 = Dog.new(
   race: Faker::Creature::Dog.breed,
   size: ['small', 'medium', 'large'].sample,
   description: Faker::Creature::Dog.meme_phrase,
+  address: Faker::Address.full_address,
   )
 
 p dog2 = Dog.new(
@@ -115,6 +121,7 @@ p dog2 = Dog.new(
   race: Faker::Creature::Dog.breed,
   size: ['small', 'medium', 'large'].sample,
   description: Faker::Creature::Dog.meme_phrase,
+  address: Faker::Address.full_address,
   )
 
 
@@ -131,8 +138,14 @@ dadou.save!
 
 # seed some of dadou's bookings
 3.times do
-  p dadou_booking = Booking.new(description: Faker::GreekPhilosophers.quote, startdate: Faker::Date.forward(days: 23),
-    enddate: Faker::Date.forward(days: 24), payed: false, confirmed: false)
+  p dadou_booking = Booking.new(
+    description: Faker::GreekPhilosophers.quote,
+    startdate: Faker::Date.forward(days: 23),
+    enddate: Faker::Date.forward(days: 24),
+    payed: false,
+    confirmed: false,
+  )
+
   p dadou_review = Review.new(
     description: Faker::Movies::VForVendetta.quote,
     rating: rand(0..5),

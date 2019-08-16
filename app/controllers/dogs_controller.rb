@@ -22,7 +22,6 @@ class DogsController < ApplicationController
   end
 
   def show
-    @marker =
     # give the bookings of the dog as an array to the views
     @bookings = @dog.bookings
 
@@ -47,11 +46,12 @@ class DogsController < ApplicationController
   end
 
   def index
-    # @dogs = Dog.geocoded # returns all dogs with coordinates
+
     if params[:query].present?
-      @dogs = Dog.search_dog_scope(params[:query])
+      search = Dog.search_dog_scope(params[:query])
+      @dogs = search.geocoded
     else
-      @dogs = Dog.all
+      @dogs = Dog.geocoded # returns all dogs with coordinates
     end
 
     @markers = @dogs.map do |dog|
