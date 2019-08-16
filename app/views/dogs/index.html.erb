@@ -20,7 +20,12 @@
             <div class="card-dog">
               <%= cl_image_tag dog.photo, height: 200, width: 250, crop: :fill %>
 
-              <p>STARS OF THE DOG: <%= @stars[i].nil? ? "no rating yet" : @stars[i].round(2) %></p>
+
+                <% if @stars[i] %>
+                  <% @stars[i].round(0).to_i.times do %>
+                    <i class="fas fa-star"></i>
+                  <% end %>
+                <% end %>
 
                 <% if current_user %>
                   <%= link_to dog.name.upcase, dog_path(dog), class: "links-sessions" %>
@@ -29,7 +34,7 @@
                 <%end%>
                 <% if current_user %>
                   <% if policy(dog).edit? %>
-                    <br><%= link_to "EDIT", edit_dog_path(dog), class:"btd-yels"  %>
+                    <br><br><%= link_to "EDIT", edit_dog_path(dog), class:"btd-yels"  %>
                   <% end %>
                   <% if policy(dog).destroy? %>
                     <%= link_to "REMOVE", dog_path(dog),

@@ -4,9 +4,9 @@
    <div class="card-user">
     <%= cl_image_tag @user.photo, crop: :fill, id: "user", gravity: :face %>
       <div class="user-description">
-        <h3>
+        <h2>
           <%= @user.name %> <%= @user.lastname %>
-        </h3>
+        </h2>
           <p><%= @user.email %></p>
           <p><%= @user.address %></p>
           <%= link_to 'Add a new dog', new_dog_path, class: "links-sessions" %>
@@ -26,7 +26,11 @@
           <div class="card-dog">
             <%= cl_image_tag dog.photo, width: 200, height: 150, crop: :fill %>
 
-            <p>RATING: <%= @stars[i].nil? ? "no rating yet" : @stars[i].round(2) %></p>
+                <% if @stars[i] %>
+                  <% @stars[i].round(0).to_i.times do %>
+                    <i class="fas fa-star"></i>
+                  <% end %>
+                <% end %>
 
             <h3><%= link_to dog[:name].upcase, dog_path(dog), class: "links-sessions" %></h3>
             <%= link_to "EDIT", edit_dog_path(dog), class:"btd-yels"  %>
