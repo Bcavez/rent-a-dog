@@ -6,7 +6,10 @@ $yellow: #f8b739;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 80px;
+  height: 70px;
+  position:fixed;
+  bottom:0px;
+
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
   width: 100vw;

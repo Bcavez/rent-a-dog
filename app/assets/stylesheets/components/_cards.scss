@@ -145,6 +145,7 @@ h3, h2, h1, p {
 
 
 .card-user{
+  background-color:white;
   height: 250px;
   box-shadow: 5px 5px 10px $gris;
   display: flex;
@@ -155,14 +156,12 @@ h3, h2, h1, p {
 .card-rev{
   height: 150px;
   box-shadow: 5px 5px 10px $gris;
-  display: flex;
-  align-items: center;
   margin: 10px auto;
   overflow:scroll;
       h3, i {
       color: $yellow;
     }
-  margin: 10px auto;
+  padding: 10px;
 }
 
 .card-user-s {
@@ -176,6 +175,7 @@ h3, h2, h1, p {
 }
 
 .card-user-dogs {
+  background-color:white;
   height: 280px;
   box-shadow: 5px 5px 10px $gris;
   grid-gap: 2%;
@@ -184,6 +184,7 @@ h3, h2, h1, p {
 }
 
 .card-user-bg{
+  background-color:white;
   height: 350px;
   box-shadow: 5px 5px 10px $gris;
   display: flex;
@@ -211,6 +212,8 @@ h3, h2, h1, p {
   margin: 10px;
   line-height: 0.7;
   font-size: 0.8em;
+  padding: 10px;
+  overflow: scroll;
 }
 
 .book-actions {
