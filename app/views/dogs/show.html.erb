@@ -1,5 +1,11 @@
 <div class="container">
-  <h1><%=@dog.name.capitalize%>'s Profile</h1>
+  <br><h1><%=@dog.name.capitalize%>
+    <% if @stars %>
+      <% @stars.round(0).to_i.times do %>
+        <i class="fas fa-star"></i>
+      <% end %>
+    <% end %>
+  </h1>
 
   <div class="profile-page">
 
@@ -60,15 +66,23 @@
     </div>
 
   </div>
+
+  <br><h2><%= "#{@dog.name.capitalize}'s reviews"%></h2>
+      <%= link_to "REVIEW #{@dog.name.upcase}", new_dog_review_path(@dog), class:"btd-yw" %>
+    <% @reviews.each_with_index do |review, i| %>
+  <div class="card-rev">
+        <div class="user-description">
+            <h2>  <% review.rating.round(0).to_i.times do %>
+                <i class="fas fa-star"></i>
+            <% end %>
+            </h2>
+            <h2><%= review[:description] %></h2>
+            <h3><%= @authors[i][:name] %> <%= @authors[i][:lastname] %></h3>
+        </div>
+      </div>
+  <% end %>
+
+
 </div>
 
-<% @reviews.each_with_index do |review, i| %>
-  <p>Author: <%= @authors[i][:name] %> <%= @authors[i][:lastname] %></p>
-  <p>Rating: <%= review[:rating] %></p>
-  <p>Description: <%= review[:description] %></p>
-<% end %>
 
-<%= link_to 'REVIEW THE DOG', new_dog_review_path(@dog) %>
-
-<p>STARS OF THE DOG</p>
-<%= @stars ? @stars.round(2) : "no rating yet" %>

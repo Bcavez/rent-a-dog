@@ -52,11 +52,11 @@ h3, h2, h1, p {
 
 .card-show {
   text-align: center;
-  margin: 0 auto;
+  margin: 0px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   color: $gbl;
-  max-width: 50vw;
+  // max-width: 50vw;
   p, h2, h3, h1 {
     text-align: left;
     margin-left: 5%;
@@ -99,7 +99,7 @@ h3, h2, h1, p {
 .profile-page {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  grid-gap: 2%;
+  grid-gap:2%;
   margin: 10px auto;
 }
 
@@ -119,6 +119,19 @@ h3, h2, h1, p {
   box-shadow: 5px 5px 10px $gris;
   display: flex;
   align-items: center;
+  margin: 10px auto;
+}
+
+.card-rev{
+  height: 150px;
+  box-shadow: 5px 5px 10px $gris;
+  display: flex;
+  align-items: center;
+  margin: 10px auto;
+  overflow:scroll;
+      h3, i {
+      color: $yellow;
+    }
   margin: 10px auto;
 }
 
@@ -175,6 +188,8 @@ h3, h2, h1, p {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 2%;
+  margin: 0px;
+  padding: 0px;
 }
 
 .fullspace {
