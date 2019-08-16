@@ -58,6 +58,7 @@ puts "Creating bookings and reviews..."
     payed: false,
     confirmed: false,
   )
+
   p faker_review = Review.new(
     description: Faker::Movies::VForVendetta.quote,
     rating: rand(0..5),
@@ -144,6 +145,7 @@ dadou.save!
     payed: false,
     confirmed: false,
   )
+
   p dadou_review = Review.new(
     description: Faker::Movies::VForVendetta.quote,
     rating: rand(0..5),

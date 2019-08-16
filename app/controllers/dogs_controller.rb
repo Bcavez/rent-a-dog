@@ -46,7 +46,14 @@ class DogsController < ApplicationController
   end
 
   def index
-    @dogs = Dog.geocoded # returns all dogs with coordinates
+
+    if params[:query].present?
+      search = Dog.search_dog_scope(params[:query])
+      @dogs = search.geocoded
+    else
+      @dogs = Dog.geocoded # returns all dogs with coordinates
+    end
+
     @markers = @dogs.map do |dog|
       {
         lat: dog.latitude,
@@ -55,18 +62,12 @@ class DogsController < ApplicationController
         image_url: helpers.asset_url('doge.png')
       }
     end
-
     # return array of all the dogs in the DB
     # @dogs = policy_scope(Dog.includes(:user))
-
-
     # give the average rating of the dog as an integer
     # @stars = @dogs.map { |dog| Dog.average_rating(dog) }
     @stars = @dogs.map { |dog| dog.reviews.average(:rating) }
-
     # @dogs = Dog.all
-
-
   end
 
   def new

@@ -1,4 +1,6 @@
 class Dog < ApplicationRecord
+  include PgSearch
+
   validates :name, presence: true
   validates :race, presence: true
   validates :size, presence: true, inclusion: { in: %w(small medium large),
@@ -9,6 +11,15 @@ class Dog < ApplicationRecord
   belongs_to :user
 
   mount_uploader :photo, PhotoUploader
+
+  pg_search_scope :search_dog_scope,
+                  against: [:name, :race, :size, :description],
+                  associated_against: {
+                    user: [:name, :lastname]
+                  },
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
