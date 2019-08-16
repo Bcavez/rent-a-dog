@@ -117,7 +117,7 @@ p dog1 = Dog.new(
   race: Faker::Creature::Dog.breed,
   size: ['small', 'medium', 'large'].sample,
   description: Faker::Creature::Dog.meme_phrase,
-  address: Faker::Address.full_address,
+  address: "Cantersteen Bruxelles",
   )
 
 p dog2 = Dog.new(
@@ -125,7 +125,7 @@ p dog2 = Dog.new(
   race: Faker::Creature::Dog.breed,
   size: ['small', 'medium', 'large'].sample,
   description: Faker::Creature::Dog.meme_phrase,
-  address: Faker::Address.full_address,
+  address: "Bruxelles, grand-place",
   )
 
 
