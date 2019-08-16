@@ -137,7 +137,7 @@ dog2.user = dadou
 # dadou.photo = open(user_placeholder_url)
 # dog1.photo = open(url)
 # dog2.photo = open(url)
-dadou.remote.photo_url = "https://picsum.photos/200"
+dadou.remote_photo_url = "https://picsum.photos/200"
 dog1.remote_photo_url = "https://picsum.photos/200"
 dog2.remote_photo_url = "https://picsum.photos/200"
 dog1.save!
