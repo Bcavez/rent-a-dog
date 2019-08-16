@@ -4,6 +4,11 @@ $yellow: #f8b739;
 .navbar {
   height: 70px;
   margin-bottom: 0px !important;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
 .navbar-lewagon {
