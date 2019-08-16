@@ -35,12 +35,16 @@ puts "Creatings users ..."
     address: Faker::Address.full_address,
     )
 
-  url = "https://res.cloudinary.com/dx8gouewf/image/upload/v1565798934/pdw0qkmuurnlrmq9cyx2.jpg"
-  user_placeholder_url = "https://res.cloudinary.com/dx8gouewf/image/upload/v1565798933/cv1ksi2n9o5uxqkqjedx.jpg"
+  # url = "https://res.cloudinary.com/dx8gouewf/image/upload/v1565798934/pdw0qkmuurnlrmq9cyx2.jpg"
+  # user_placeholder_url = "https://res.cloudinary.com/dx8gouewf/image/upload/v1565798933/cv1ksi2n9o5uxqkqjedx.jpg"
+  user_placeholder_url = "https://picsum.photos/200"
+  url = "https://picsum.photos/200"
+  # faker_user.photo = open(user_placeholder_url)
+  faker_user.remote_photo_url = user_placeholder_url
+  # faker_dog.photo = open(url)
+  faker_dog.remote_photo_url = url
   # link the dog to its user
   faker_dog.user = faker_user
-  faker_user.photo = open(user_placeholder_url)
-  faker_dog.photo = open(url)
   # save to databse
   faker_dog.save!
   faker_user.save!
@@ -91,7 +95,8 @@ admin = User.new(
   admin: true,
   )
 
-admin.photo = open("https://res.cloudinary.com/dx8gouewf/image/upload/v1565798930/xwecm1a8xs9tunarokjj.jpg")
+# admin.photo = open("https://res.cloudinary.com/dx8gouewf/image/upload/v1565798930/xwecm1a8xs9tunarokjj.jpg")
+admin.remote_photo_url = "https://res.cloudinary.com/dx8gouewf/image/upload/v1565798930/xwecm1a8xs9tunarokjj.jpg"
 admin.save!
 
 puts "Done creating admin !"
@@ -128,9 +133,12 @@ url = "https://res.cloudinary.com/dx8gouewf/image/upload/v1565798934/pdw0qkmuurn
 user_placeholder_url = "https://res.cloudinary.com/dx8gouewf/image/upload/v1565798933/cv1ksi2n9o5uxqkqjedx.jpg"
 dog1.user = dadou
 dog2.user = dadou
-dadou.photo = open(user_placeholder_url)
-dog1.photo = open(url)
-dog2.photo = open(url)
+# dadou.photo = open(user_placeholder_url)
+# dog1.photo = open(url)
+# dog2.photo = open(url)
+dadou.remote.photo_url = user_placeholder_url
+dog1.remote_photo_url = url
+dog2.remote_photo_url = url
 dog1.save!
 dog2.save!
 dadou.save!
