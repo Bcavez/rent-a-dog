@@ -91,8 +91,4 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-
-  config.serve_static_assets = true
-  RAILS_ENV=production bundle exec rake assets:precompile
-  heroku run rake assets:precompile
 end
