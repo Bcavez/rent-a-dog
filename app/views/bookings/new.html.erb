@@ -3,8 +3,13 @@
   <div class="form-inputs">
     <%= simple_form_for [@dog, @booking] do |b| %>
     <%= b.input :description %>
-    <%= b.input :startdate %>
-    <%= b.input :enddate %>
+    <%= b.input :startdate, as: :date_time_picker %>
+    <%= b.input :enddate, as: :date_time_picker, input_html:
+  { data:
+    {
+      date_format: "YYYY-MM-DD",
+    }
+  } %>
   </div>
   <div class="form-actions">
     <%= b.button :submit, "BOOK #{@dog.name.upcase}", class: 'btd-ind' %>
