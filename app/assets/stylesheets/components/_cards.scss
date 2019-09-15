@@ -14,7 +14,7 @@ $yellow: #f8b739;
   color: $gbl;
   margin: 10px auto;
   padding: 20px;
-  overflow:scroll;
+  overflow: auto;
   h2, .form-inputs {
     color: $indigo
   }
@@ -109,7 +109,7 @@ h3, h2, h1, p {
 .bookings {
   border-radius: 5px;
   height: 59%;
-  overflow: scroll;
+  overflow: auto;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   color: $gbl;
   padding: 10px;
@@ -157,7 +157,7 @@ h3, h2, h1, p {
   height: 150px;
   box-shadow: 5px 5px 10px $gris;
   margin: 10px auto;
-  overflow:scroll;
+  overflow: auto;
       h3, i {
       color: $yellow;
     }
@@ -171,7 +171,7 @@ h3, h2, h1, p {
   grid-template-columns: 1fr 1fr;
   grid-gap: 2%;
   padding: 10px;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .card-user-dogs {
@@ -180,7 +180,7 @@ h3, h2, h1, p {
   box-shadow: 5px 5px 10px $gris;
   grid-gap: 2%;
   padding: 10px;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .card-user-bg{
@@ -213,7 +213,7 @@ h3, h2, h1, p {
   line-height: 0.7;
   font-size: 0.8em;
   padding: 10px;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .book-actions {
@@ -246,7 +246,7 @@ h3, h2, h1, p {
 }
 
 .index-dog {
-  overflow:scroll;
+  overflow: auto;
   box-shadow: 5px 5px 10px $gris;
   background-color:white;
   padding: 10px;
